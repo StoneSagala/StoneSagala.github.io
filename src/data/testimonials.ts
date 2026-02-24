@@ -46,12 +46,14 @@ export const testimonials: Testimonial[] = [
       "Stone is a talented designer and natural mentor and coach. He's patient, big-hearted, and truly cares about his mentees, going the extra mile to make them successful. Any organization would be lucky to have him leading design.",
     name: "Sophia Prater",
     role: "Founder, OOUX Strategy",
+    photo: "/testimonials/sophia-prater.jpg",
   },
   {
     quote:
       "Stone excels at creating user-friendly designs using Figma, simplifying complex concepts. His creativity and design standards ensure intuitive interfaces. He is a collaborative team player who is highly organized.",
     name: "Rodny Hickman",
     role: "Web Systems Architect",
+    photo: "/testimonials/rodney-hickman.jpg",
   },
   {
     quote:
