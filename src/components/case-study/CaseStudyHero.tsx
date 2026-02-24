@@ -26,7 +26,7 @@ export default function CaseStudyHero({ project }: { project: Project }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-2 md:grid-cols-4"
+          className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-3"
         >
           <div>
             <p className="font-mono text-xs text-text-tertiary uppercase tracking-wider">
@@ -45,12 +45,6 @@ export default function CaseStudyHero({ project }: { project: Project }) {
               Team
             </p>
             <p className="mt-1 text-text-primary">{project.team}</p>
-          </div>
-          <div>
-            <p className="font-mono text-xs text-text-tertiary uppercase tracking-wider">
-              Tools
-            </p>
-            <p className="mt-1 text-text-primary">{project.tools.join(", ")}</p>
           </div>
         </motion.div>
       </Container>

@@ -11,13 +11,9 @@ export default function CaseStudyGrid() {
       <Container>
         <ScrollReveal>
           <p className="mb-2 font-mono text-sm text-accent">Selected Work</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
+          <h2 className="text-3xl font-bold text-text-primary md:text-4xl">
             Case Studies
           </h2>
-          <p className="mt-4 max-w-lg text-text-secondary">
-            A selection of projects where design thinking met real business
-            impact.
-          </p>
         </ScrollReveal>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">

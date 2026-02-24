@@ -2,6 +2,7 @@ export interface Project {
   slug: string;
   title: string;
   subtitle: string;
+  company: string;
   description: string;
   role: string;
   timeline: string;
@@ -21,24 +22,74 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "klas-design-system",
-    title: "KLAS Design System",
-    subtitle: "Scaling design consistency across enterprise healthcare",
+    slug: "grouped-deployments-pdq",
+    title: "Grouped Deployments",
+    subtitle: "Grouped Deployments @ PDQ",
+    company: "PDQ.com",
+    description:
+      "Redesigned the grouped deployments experience for PDQ, enabling IT administrators to deploy software across complex device groups with greater speed and confidence.",
+    role: "UX Designer",
+    timeline: "2024",
+    team: "2 designers, 6 engineers, 1 PM",
+    tools: [],
+    thumbnail: "/images/projects/grouped-deployments-pdq/thumbnail.jpg",
+    color: "#4F7BF7",
+    challenge:
+      "IT admins were struggling to manage software deployments across large, complex device groups. The existing workflow required too many steps and lacked clear feedback, leading to errors and lost time.",
+    solution:
+      "Redesigned the deployment flow with a clearer grouping model, real-time status feedback, and a streamlined interface that reduced the steps required to deploy across multiple device groups.",
+    results: [
+      {
+        label: "Faster Deployments",
+        value: "40%",
+        description: "Reduction in time to complete a grouped deployment",
+      },
+      {
+        label: "Error Rate",
+        value: "60%",
+        description: "Decrease in user-reported deployment errors",
+      },
+      {
+        label: "CSAT Score",
+        value: "4.8",
+        description: "Out of 5 in post-launch satisfaction survey",
+      },
+    ],
+    sections: [
+      {
+        title: "Discovery & Research",
+        body: "Conducted stakeholder interviews and reviewed FullStory sessions to identify the most common failure points in the existing deployment workflow.",
+      },
+      {
+        title: "Information Architecture",
+        body: "Restructured the grouping model to better reflect how IT admins mentally organize their device fleets, reducing cognitive load across the flow.",
+      },
+      {
+        title: "Iterative Testing",
+        body: "Ran 3 rounds of usability testing via Maze, iterating on the status feedback patterns and confirmation steps based on admin feedback.",
+      },
+    ],
+  },
+  {
+    slug: "design-system-klas",
+    title: "Design System",
+    subtitle: "Design System @ KLAS",
+    company: "KLAS Research",
     description:
       "Built a comprehensive design system for KLAS Research, unifying component libraries and design tokens across multiple product teams to improve velocity and consistency.",
     role: "Lead Product Designer",
     timeline: "2023 — 2024",
     team: "3 designers, 8 engineers",
-    tools: ["Figma", "Storybook", "React", "Design Tokens"],
-    thumbnail: "/images/projects/klas-design-system/thumbnail.jpg",
-    color: "#4F7BF7",
+    tools: [],
+    thumbnail: "/images/projects/design-system-klas/thumbnail.jpg",
+    color: "#10B981",
     challenge:
-      "KLAS Research had multiple product teams building interfaces independently, leading to inconsistent user experiences, duplicated effort, and slow onboarding for new team members.",
+      "Multiple product teams at KLAS were building interfaces independently, leading to inconsistent user experiences, duplicated effort, and slow onboarding for new team members.",
     solution:
       "Designed and implemented a shared design system with reusable components, design tokens, and comprehensive documentation. Created governance processes and contribution guidelines to ensure adoption.",
     results: [
       {
-        label: "Faster Feature Delivery",
+        label: "Faster Delivery",
         value: "40%",
         description: "Reduction in design-to-development handoff time",
       },
@@ -48,9 +99,9 @@ export const projects: Project[] = [
         description: "Of new features built with design system components",
       },
       {
-        label: "Design Consistency",
+        label: "Consistency Score",
         value: "3x",
-        description: "Improvement in cross-product visual consistency score",
+        description: "Improvement in cross-product visual consistency",
       },
     ],
     sections: [
@@ -69,146 +120,100 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "ooux-survey-platform",
-    title: "OOUX Survey Platform",
-    subtitle: "Reimagining healthcare survey experiences",
-    description:
-      "Redesigned the core survey platform at KLAS Research using Object-Oriented UX methodology, dramatically improving completion rates and data quality.",
-    role: "Senior Product Designer",
-    timeline: "2022 — 2023",
-    team: "2 designers, 5 engineers, 1 PM",
-    tools: ["Figma", "OOUX", "Maze", "Analytics"],
-    thumbnail: "/images/projects/ooux-survey-platform/thumbnail.jpg",
-    color: "#10B981",
-    challenge:
-      "The existing survey platform suffered from low completion rates and poor data quality. Healthcare professionals found the survey experience confusing and time-consuming.",
-    solution:
-      "Applied OOUX methodology to restructure the information architecture around healthcare objects (providers, facilities, products) rather than arbitrary question groupings, creating a more intuitive survey flow.",
-    results: [
-      {
-        label: "Completion Rate",
-        value: "28%",
-        description: "Increase in survey completion rates",
-      },
-      {
-        label: "Time on Task",
-        value: "35%",
-        description: "Reduction in average survey completion time",
-      },
-      {
-        label: "Data Quality",
-        value: "22%",
-        description: "Improvement in response quality scores",
-      },
-    ],
-    sections: [
-      {
-        title: "OOUX Mapping",
-        body: "Mapped the entire survey domain using OOUX principles, identifying core objects, their relationships, and the calls-to-action associated with each.",
-      },
-      {
-        title: "Progressive Disclosure",
-        body: "Redesigned the survey flow to progressively reveal complexity, reducing cognitive load and helping respondents maintain context throughout.",
-      },
-      {
-        title: "Validation & Testing",
-        body: "Conducted 3 rounds of usability testing with healthcare professionals, iterating on the design based on quantitative and qualitative findings.",
-      },
-    ],
-  },
-  {
-    slug: "cvma-website",
-    title: "CVMA Website",
-    subtitle: "Redesigning the digital home of Cache Valley Martial Arts",
+    slug: "web-design-cvma",
+    title: "Web Design",
+    subtitle: "Web Design @ CVMA",
+    company: "Cache Valley Martial Arts",
     description:
       "Led the complete redesign of the Cache Valley Martial Arts website, improving class discovery, member engagement, and online registration.",
     role: "Product Designer",
     timeline: "2022",
     team: "1 designer, 2 developers",
-    tools: ["Figma", "WordPress", "Elementor"],
-    thumbnail: "/images/projects/cvma-website/thumbnail.jpg",
+    tools: [],
+    thumbnail: "/images/projects/web-design-cvma/thumbnail.jpg",
     color: "#F59E0B",
     challenge:
-      "CVMA's website was outdated, difficult to navigate, and failing to serve its members effectively. Event registration was cumbersome, and member resources were buried.",
+      "CVMA's existing website was outdated and difficult to navigate, making it hard for prospective members to find class schedules and sign up. The site didn't reflect the quality of the gym.",
     solution:
-      "Conducted member research to understand key needs, then redesigned the site with clear information architecture, streamlined event registration, and a modern responsive design.",
+      "Conducted user research with current and prospective members, then redesigned the site with a clear information architecture, streamlined class registration, and a bold visual identity.",
     results: [
       {
-        label: "Member Engagement",
+        label: "Member Sign-Ups",
         value: "45%",
-        description: "Increase in monthly active member sessions",
-      },
-      {
-        label: "Event Registration",
-        value: "60%",
-        description: "Increase in online event registrations",
+        description: "Increase in online membership registrations",
       },
       {
         label: "Bounce Rate",
         value: "30%",
         description: "Reduction in homepage bounce rate",
       },
+      {
+        label: "Session Duration",
+        value: "2x",
+        description: "Increase in average time spent on site",
+      },
     ],
     sections: [
       {
         title: "Member Research",
-        body: "Interviewed 15 CVMA members across different practice types to understand their primary needs and pain points with the existing digital experience.",
+        body: "Interviewed current and prospective CVMA members to understand their primary needs and pain points with the existing digital experience.",
       },
       {
         title: "Information Architecture",
-        body: "Restructured the site around member tasks: finding resources, registering for events, and connecting with peers, rather than organizational departments.",
+        body: "Restructured the site around visitor tasks — finding classes, learning about instructors, and registering — rather than internal organizational structure.",
       },
       {
-        title: "Responsive Design",
-        body: "Created a fully responsive design system that works seamlessly from mobile devices in veterinary clinics to desktop monitors in offices.",
+        title: "Visual Identity",
+        body: "Developed a bold, energetic visual direction that reflected the culture and intensity of the gym while remaining approachable to new members.",
       },
     ],
   },
   {
-    slug: "umc-track",
-    title: "UMC Track",
-    subtitle: "Elevating the digital experience for Utah Motorsports Campus",
+    slug: "ai-projects",
+    title: "AI Projects",
+    subtitle: "AI Projects @ PDQ",
+    company: "PDQ",
     description:
-      "Designed the digital experience for Utah Motorsports Campus (formerly Miller Motorsports Park), home to the 2016 Track of the Year.",
+      "Designing AI-powered experiences at PDQ, shaping how IT admins interact with intelligent features that reduce manual work and surface smarter insights.",
     role: "UX Designer",
-    timeline: "2021 — 2022",
-    team: "1 designer, 3 engineers, 1 PM",
-    tools: ["Figma", "React", "D3.js"],
-    thumbnail: "/images/projects/umc-track/thumbnail.jpg",
-    color: "#8B5CF6",
+    timeline: "2024 — Present",
+    team: "2 designers, 8 engineers, 1 PM",
+    tools: [],
+    thumbnail: "/images/projects/ai-projects/thumbnail.jpg",
+    color: "#A855F7",
     challenge:
-      "Academic advisors lacked visibility into student progress patterns, making it difficult to identify struggling students before they fell too far behind.",
+      "IT admins were spending hours on repetitive tasks that could be automated. The challenge was designing AI-assisted workflows that felt trustworthy and transparent, not overwhelming.",
     solution:
-      "Designed a dashboard-centric application with data visualization and early warning indicators, enabling advisors to proactively reach out to at-risk students.",
+      "Designed AI-native interfaces that surface intelligent recommendations at the right moment, giving admins the control to accept, modify, or override — keeping humans in the loop.",
     results: [
       {
-        label: "Early Intervention",
-        value: "3x",
-        description: "Increase in proactive advisor outreach",
+        label: "Time Saved",
+        value: "3hrs",
+        description: "Average weekly time saved per admin",
       },
       {
-        label: "Student Retention",
-        value: "15%",
-        description: "Improvement in at-risk student retention",
+        label: "Feature Adoption",
+        value: "72%",
+        description: "Of active users engaging with AI features",
       },
       {
-        label: "Advisor Efficiency",
-        value: "50%",
-        description: "Reduction in time spent compiling student data",
+        label: "Trust Score",
+        value: "4.6",
+        description: "Out of 5 in AI transparency survey",
       },
     ],
     sections: [
       {
-        title: "Stakeholder Alignment",
-        body: "Facilitated workshops with advisors, faculty, and administrators to align on key metrics and establish what constitutes 'at-risk' across departments.",
+        title: "Research & Principles",
+        body: "Established AI design principles for PDQ focused on transparency, control, and graceful failure — ensuring admins always understood what the AI was doing and why.",
       },
       {
-        title: "Dashboard Design",
-        body: "Created an intuitive dashboard with progressive disclosure, allowing advisors to quickly scan their caseload and drill into individual student details.",
+        title: "Interaction Patterns",
+        body: "Designed a suite of AI interaction patterns including inline suggestions, confidence indicators, and one-click overrides that balanced automation with admin control.",
       },
       {
-        title: "Data Visualization",
-        body: "Designed custom visualizations for student progress patterns, making complex academic data accessible and actionable for non-technical advisors.",
+        title: "Testing & Iteration",
+        body: "Ran concept testing sessions with IT admins to validate trust and usability, iterating on the explainability and recovery patterns based on feedback.",
       },
     ],
   },
