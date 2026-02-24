@@ -1,21 +1,111 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/ui/Container";
-import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
 
+const words = [
+  {
+    text: "intuitive",
+    color: "#4F7BF7",
+    enter: { y: "-110%", x: 0 },  // enters from top
+    exit:  { x: "110%",  y: 0 },  // scalable pushes from left → exits right
+  },
+  {
+    text: "scalable",
+    color: "#8B5CF6",
+    enter: { x: "-110%", y: 0 },  // enters from left
+    exit:  { y: "-110%", x: 0 },  // accessible pushes from bottom → exits top
+  },
+  {
+    text: "accessible",
+    color: "#10B981",
+    enter: { y: "110%",  x: 0 },  // enters from bottom
+    exit:  { x: "-110%", y: 0 },  // impactful pushes from right → exits left
+  },
+  {
+    text: "impactful",
+    color: "#F59E0B",
+    enter: { x: "110%",  y: 0 },  // enters from right
+    exit:  { y: "110%",  x: 0 },  // intuitive pushes from top → exits bottom
+  },
+];
+
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % words.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  const { color } = words[index];
+
   return (
-    <section className="relative flex min-h-screen items-center pt-16">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
+
+      {/* Radial gradient — left, crossfades with each word */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={index}
+          className="pointer-events-none absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            background: `radial-gradient(ellipse 80% 70% at 0% 50%, ${words[index].color}2e 0%, transparent 70%)`,
+          }}
+          aria-hidden="true"
+        />
+      </AnimatePresence>
+
+
       <Container>
         <div className="max-w-3xl">
-          <AnimatedText
-            text="Turning complex products into intuitive digital experiences."
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl md:leading-tight"
-            delay={0.2}
-          />
+          >
+            <span className="block">
+              Turning complex products into{" "}
+              <span
+                className="relative inline-grid"
+                style={{ verticalAlign: "baseline", overflow: "hidden" }}
+              >
+                {/* Width lock */}
+                <span
+                  className="invisible col-start-1 row-start-1 select-none pointer-events-none"
+                  aria-hidden
+                >
+                  accessible
+                </span>
+
+                <AnimatePresence mode="sync" initial={false}>
+                  <motion.span
+                    key={index}
+                    className="col-start-1 row-start-1"
+                    initial={words[index].enter}
+                    animate={{ y: 0, x: 0 }}
+                    exit={words[index].exit}
+                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ color: words[index].color }}
+                  >
+                    {words[index].text}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+            </span>
+            <span className="block">digital experiences.</span>
+          </motion.h1>
 
           <ScrollReveal delay={0.5}>
             <div className="mt-10 max-w-xl">
@@ -29,7 +119,7 @@ export default function Hero() {
                   href="https://www.pdq.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent transition-colors hover:text-accent-hover"
+                  className="text-text-primary"
                 >
                   PDQ.com
                 </a>
@@ -64,6 +154,11 @@ export default function Hero() {
           <div className="h-8 w-px bg-text-tertiary" />
         </motion.div>
       </motion.div>
+
+      {/* Screen reader announcement */}
+      <span className="sr-only" aria-live="polite" aria-atomic="true">
+        {words[index].text}
+      </span>
     </section>
   );
 }
