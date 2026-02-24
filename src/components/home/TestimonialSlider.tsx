@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { testimonials } from "@/data/testimonials";
@@ -53,7 +54,17 @@ export default function TestimonialSlider() {
                 &ldquo;{t.quote}&rdquo;
               </p>
               <footer className="mt-6 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-bg-tertiary" />
+                {t.photo ? (
+                  <Image
+                    src={t.photo}
+                    alt={t.name}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                ) : (
+                  <div className="h-10 w-10 rounded-full bg-bg-tertiary" />
+                )}
                 <div>
                   <p className="font-medium text-text-primary">{t.name}</p>
                   <p className="text-sm text-text-secondary">{t.role}</p>

@@ -10,6 +10,7 @@ node_modules/
 out/
 
 # Environment
+.env
 .env*.local
 
 # OS
