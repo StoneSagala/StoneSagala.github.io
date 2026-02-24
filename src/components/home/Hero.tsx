@@ -74,12 +74,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl md:leading-tight"
+            aria-label="Turning complex products into intuitive, scalable, accessible, and impactful digital experiences."
           >
             <span className="block">
               Turning complex products into{" "}
               <span
                 className="relative inline-grid"
                 style={{ verticalAlign: "baseline", overflow: "hidden" }}
+                aria-hidden="true"
               >
                 {/* Width lock */}
                 <span
@@ -155,10 +157,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Screen reader announcement */}
-      <span className="sr-only" aria-live="polite" aria-atomic="true">
-        {words[index].text}
-      </span>
     </section>
   );
 }
