@@ -10,7 +10,7 @@ export default function CaseStudyGrid() {
     <section id="work" className="py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">Selected Work</p>
+          <p className="mb-2 font-mono text-sm text-accent">Proof I Design</p>
           <h2 className="text-3xl font-bold text-text-primary md:text-4xl">
             Case Studies
           </h2>
@@ -18,7 +18,7 @@ export default function CaseStudyGrid() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.slug} delay={i * 0.1}>
+            <ScrollReveal key={project.slug} delay={i * 0.1} className="h-full">
               <CaseStudyCard project={project} />
             </ScrollReveal>
           ))}

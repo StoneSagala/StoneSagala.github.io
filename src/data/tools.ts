@@ -6,7 +6,7 @@ export interface Tool {
   /** Key from simple-icons (e.g. "siFigma") */
   iconKey?: string;
   /** For tools not in simple-icons */
-  customIcon?: "chatgpt" | "grain" | "useberry" | "figjam" | "tray" | "agile" | "ooux";
+  customIcon?: "chatgpt" | "grain" | "figjam" | "tray" | "agile" | "ooux";
 }
 
 export const tools: Tool[] = [
@@ -15,7 +15,7 @@ export const tools: Tool[] = [
   { name: "FigJam",  category: "Design", customIcon: "figjam" },
 
   // Research
-  { name: "Useberry",  category: "Research", customIcon: "useberry" },
+  { name: "Qualtrics", category: "Research", iconKey: "siQualtrics" },
   { name: "Grain",     category: "Research", customIcon: "grain" },
   { name: "Dovetail",  category: "Research", iconKey: "siDovetail" },
   { name: "HubSpot",   category: "Research", iconKey: "siHubspot" },

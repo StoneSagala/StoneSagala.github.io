@@ -6,11 +6,11 @@ import type { Project } from "@/data/projects";
 
 export default function CaseStudyCard({ project }: { project: Project }) {
   return (
-    <Link href={`/work/${project.slug}`} className="group block">
+    <Link href={`/work/${project.slug}`} className="group flex h-full">
       <motion.article
         whileHover={{ y: -6 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="overflow-hidden rounded-2xl border border-border bg-bg-secondary transition-colors duration-300 group-hover:border-border-hover"
+        className="flex w-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-secondary transition-colors duration-300 group-hover:border-border-hover"
       >
         {/* Thumbnail */}
         <div
@@ -32,7 +32,7 @@ export default function CaseStudyCard({ project }: { project: Project }) {
         </div>
 
         {/* Content */}
-        <div className="p-6 md:p-8">
+        <div className="flex flex-1 flex-col p-6 md:p-8">
           <p
             className="mb-2 font-mono text-xs font-medium uppercase tracking-widest"
             style={{ color: project.color }}

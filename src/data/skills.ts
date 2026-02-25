@@ -2,43 +2,36 @@ export interface Skill {
   title: string;
   description: string;
   icon: string;
+  color: string;
 }
 
 export const skills: Skill[] = [
   {
-    title: "Design Systems",
+    title: "Learning",
     description:
-      "Building scalable component libraries, design tokens, and governance frameworks for enterprise products.",
-    icon: "layers",
+      "Working to better understand customers, features, and the domain will always be part of the job. Doing this quickly is important so you can design the best solutions.",
+    icon: "book",
+    color: "#4F7BF7",
   },
   {
-    title: "UX Research",
+    title: "Object-Oriented Design",
     description:
-      "User interviews, usability testing, surveys, and data analysis to drive informed design decisions.",
-    icon: "search",
+      "Designing in objects and relationships, similar to developers, is a methodology used by Delta, IKEA, and Disney. This produces more coherent, scalable products.",
+    icon: "ooux",
+    color: "#8B5CF6",
   },
   {
-    title: "Product Strategy",
+    title: "Information Architecture",
     description:
-      "Translating business goals into product roadmaps, aligning stakeholders, and defining success metrics.",
-    icon: "target",
+      "Structuring complex systems and information-dense applications may not be pretty, but it's critical — especially when you consider that most designs are over 50% text.",
+    icon: "tree",
+    color: "#10B981",
   },
   {
-    title: "Interaction Design",
+    title: "AI Integration",
     description:
-      "Crafting intuitive flows, micro-interactions, and responsive interfaces that delight users.",
-    icon: "pointer",
-  },
-  {
-    title: "Prototyping",
-    description:
-      "High-fidelity interactive prototypes in Figma for testing and stakeholder alignment.",
-    icon: "play",
-  },
-  {
-    title: "Front-End Development",
-    description:
-      "HTML, CSS, React, and Next.js — bridging the gap between design intent and implementation.",
-    icon: "code",
+      "From prompt engineering to building AI agents, AI is a key way to save hours, days, or weeks — freeing up more time to design solutions and understand users.",
+    icon: "ai",
+    color: "#FF9933",
   },
 ];

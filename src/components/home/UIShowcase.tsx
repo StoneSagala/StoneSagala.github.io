@@ -30,7 +30,7 @@ export default function UIShowcase() {
     >
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">Visual Design</p>
+          <p className="mb-2 font-mono text-sm text-accent">Dribbble-worthy</p>
           <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
             UI Showcase
           </h2>

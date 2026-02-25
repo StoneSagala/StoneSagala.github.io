@@ -10,13 +10,25 @@ import { testimonials } from "@/data/testimonials";
 export default function TestimonialSlider() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
+
+  const advance = useCallback(() => {
+    setCurrent((p) => (p + 1) % testimonials.length);
+  }, []);
 
   const prev = useCallback(() => {
     setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
+    setResetKey((k) => k + 1);
   }, []);
 
   const next = useCallback(() => {
     setCurrent((p) => (p + 1) % testimonials.length);
+    setResetKey((k) => k + 1);
+  }, []);
+
+  const goTo = useCallback((i: number) => {
+    setCurrent(i);
+    setResetKey((k) => k + 1);
   }, []);
 
   useEffect(() => {
@@ -25,17 +37,17 @@ export default function TestimonialSlider() {
     ).matches;
     if (prefersReducedMotion || paused) return;
 
-    const timer = setInterval(next, 10000);
+    const timer = setInterval(advance, 10000);
     return () => clearInterval(timer);
-  }, [paused, next]);
+  }, [paused, resetKey, advance]);
 
   return (
     <section className="border-t border-border py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">Testimonials</p>
+          <p className="mb-2 font-mono text-sm text-accent">They Said It, Not Me</p>
           <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
-            What People Say
+            Testimonials
           </h2>
         </ScrollReveal>
 
@@ -92,7 +104,7 @@ export default function TestimonialSlider() {
             {testimonials.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrent(i)}
+                onClick={() => goTo(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   i === current
                     ? "w-8 bg-accent"

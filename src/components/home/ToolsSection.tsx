@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -11,7 +11,7 @@ import {
 import {
   siFigma, siFramer, siDovetail, siHubspot,
   siMixpanel, siGoogleanalytics, siNotion, siJira, siConfluence,
-  siLinear, siLoom, siWordpress, siClaude, siN8n,
+  siLinear, siLoom, siWordpress, siClaude, siN8n, siQualtrics,
 } from "simple-icons";
 
 const iconPaths: Record<string, string> = {
@@ -29,6 +29,7 @@ const iconPaths: Record<string, string> = {
   siWordpress:        siWordpress.path,
   siClaude:           siClaude.path,
   siN8n:              siN8n.path,
+  siQualtrics:        siQualtrics.path,
 };
 
 function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
@@ -66,15 +67,6 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
       <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...svgProps}>
         <path d="M15 10l4.553-2.277A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14" />
         <rect x="2" y="7" width="13" height="10" rx="2" />
-      </svg>
-    );
-  }
-
-  if (tool.customIcon === "useberry") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...svgProps}>
-        <path d="M4 4l7.07 17 2.51-7.39L21 11.07z" />
-        <path d="M13.5 13.5l4 4" />
       </svg>
     );
   }
@@ -123,7 +115,24 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
 }
 
 export default function ToolsSection() {
-  const [active, setActive] = useState<ToolCategory>("Design");
+  const [active, setActive] = useState<ToolCategory>("All");
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [minHeight, setMinHeight] = useState(0);
+
+  // Track the maximum height the grid ever reaches (the "All" view) and lock it
+  useEffect(() => {
+    if (!gridRef.current) return;
+    let maxH = 0;
+    const observer = new ResizeObserver(entries => {
+      const h = entries[0].contentRect.height;
+      if (h > maxH) {
+        maxH = h;
+        setMinHeight(h);
+      }
+    });
+    observer.observe(gridRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const filtered = active === "All" ? tools : tools.filter((t) => t.category === active);
 
@@ -131,7 +140,7 @@ export default function ToolsSection() {
     <section className="border-t border-border py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">My Stack</p>
+          <p className="mb-2 font-mono text-sm text-accent">Things I Actually Use</p>
           <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
             Tools & Frameworks
           </h2>
@@ -164,7 +173,11 @@ export default function ToolsSection() {
         </ScrollReveal>
 
         {/* Tool grid */}
-        <div className="mt-8 flex min-h-[6rem] flex-wrap items-start gap-3">
+        <div
+          ref={gridRef}
+          className="mt-8 flex flex-wrap items-start gap-3 content-start"
+          style={{ minHeight }}
+        >
           <AnimatePresence mode="popLayout">
             {filtered.map((tool) => {
               const color = categoryColors[tool.category];

@@ -74,10 +74,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl md:leading-tight"
-            aria-label="Turning complex products into intuitive, scalable, accessible, and impactful digital experiences."
+            aria-label="Let's turn complex products into intuitive, scalable, accessible, and impactful digital experiences."
           >
             <span className="block">
-              Turning complex products into{" "}
+              Let's turn complex products into{" "}
               <span
                 className="relative inline-grid"
                 style={{ verticalAlign: "baseline", overflow: "hidden" }}
@@ -112,8 +112,7 @@ export default function Hero() {
           <ScrollReveal delay={0.5}>
             <div className="mt-10 max-w-xl">
               <p className="text-lg leading-relaxed text-text-secondary">
-                Product Designer with 5 years of experience across healthcare,
-                cybersecurity, and enterprise IT software.
+                Product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports. Confusion is a design problem ... I solve design problems.
               </p>
               <p className="mt-3 text-base text-text-primary">
                 UX Designer @{" "}
