@@ -81,8 +81,8 @@ export const projects: Project[] = [
     timeline: "2023 — 2024",
     team: "3 designers, 8 engineers",
     tools: [],
-    thumbnail: "/images/projects/design-system-klas/thumbnail.jpg",
-    color: "#10B981",
+    thumbnail: "/images/projects/design-system-klas/thumbnail.png",
+    color: "#F59E0B",
     challenge:
       "Multiple product teams at KLAS were building interfaces independently, leading to inconsistent user experiences, duplicated effort, and slow onboarding for new team members.",
     solution:
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     team: "1 designer, 2 developers",
     tools: [],
     thumbnail: "/images/projects/web-design-cvma/thumbnail.jpg",
-    color: "#F59E0B",
+    color: "#10B981",
     challenge:
       "CVMA's existing website was outdated and difficult to navigate, making it hard for prospective members to find class schedules and sign up. The site didn't reflect the quality of the gym.",
     solution:

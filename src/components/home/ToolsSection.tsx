@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Container from "@/components/ui/Container";
@@ -31,6 +32,13 @@ const iconPaths: Record<string, string> = {
   siN8n:              siN8n.path,
   siQualtrics:        siQualtrics.path,
 };
+
+function hexToRgb(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `${r}, ${g}, ${b}`;
+}
 
 function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
   const svgProps = {
@@ -83,7 +91,6 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
   }
 
   if (tool.customIcon === "agile") {
-    // Rotating arrows — represents sprints and iteration cycles
     return (
       <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...svgProps}>
         <polyline points="1 4 1 10 7 10" />
@@ -94,7 +101,6 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
   }
 
   if (tool.customIcon === "ooux") {
-    // Connected object nodes — represents the object-oriented UX model structure
     return (
       <svg viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...svgProps}>
         <rect x="2" y="2" width="8" height="5" rx="1" />
@@ -106,7 +112,6 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
     );
   }
 
-  // Fallback: monogram letter in category color
   return (
     <span className="flex h-5 w-5 shrink-0 items-center justify-center font-mono text-xs font-semibold" style={{ color }} aria-hidden>
       {tool.name[0]}
@@ -119,7 +124,7 @@ export default function ToolsSection() {
   const gridRef = useRef<HTMLDivElement>(null);
   const [minHeight, setMinHeight] = useState(0);
 
-  // Track the maximum height the grid ever reaches (the "All" view) and lock it
+  // Lock grid height to its maximum (the "All" view)
   useEffect(() => {
     if (!gridRef.current) return;
     let maxH = 0;
@@ -134,13 +139,40 @@ export default function ToolsSection() {
     return () => observer.disconnect();
   }, []);
 
+  // Proximity border glow on tool chips
+  useEffect(() => {
+    const container = gridRef.current;
+    if (!container) return;
+
+    const PROXIMITY = 120;
+    const getChips = () => Array.from(container.querySelectorAll<HTMLElement>('.tool-chip'));
+
+    const handleMouseMove = (e: MouseEvent) => {
+      getChips().forEach(chip => {
+        const rect = chip.getBoundingClientRect();
+        const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
+        const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const intensity = distance === 0 ? 1 : Math.max(0, 1 - distance / PROXIMITY);
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        chip.style.setProperty('--glow-x', `${x}%`);
+        chip.style.setProperty('--glow-y', `${y}%`);
+        chip.style.setProperty('--glow-intensity', String(intensity));
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const filtered = active === "All" ? tools : tools.filter((t) => t.category === active);
 
   return (
     <section className="border-t border-border py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">Things I Actually Use</p>
+          <p className="mb-2 font-mono text-sm text-accent">My Secret Sauce</p>
           <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
             Tools & Frameworks
           </h2>
@@ -181,6 +213,7 @@ export default function ToolsSection() {
           <AnimatePresence mode="popLayout">
             {filtered.map((tool) => {
               const color = categoryColors[tool.category];
+              const rgb = hexToRgb(color);
               return (
                 <motion.div
                   key={tool.name}
@@ -188,8 +221,15 @@ export default function ToolsSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.92 }}
                   transition={{ duration: 0.18 }}
-                  className="flex items-center gap-3 rounded-xl bg-bg-secondary px-4 py-3 transition-colors duration-200"
-                  style={{ border: `1px solid ${color}33` }}
+                  className="tool-chip tool-chip--glow flex items-center gap-3 rounded-xl bg-bg-secondary px-4 py-3 transition-colors duration-200"
+                  style={{
+                    border: `1px solid ${color}33`,
+                    '--glow-color': rgb,
+                    '--glow-x': '50%',
+                    '--glow-y': '50%',
+                    '--glow-intensity': '0',
+                    '--glow-radius': '120px',
+                  } as React.CSSProperties}
                 >
                   <ToolIcon tool={tool} color={color} />
                   <span className="font-mono text-sm text-text-secondary">
