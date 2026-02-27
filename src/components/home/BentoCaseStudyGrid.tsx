@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
 import ProjectThumbnail from '@/components/ui/ProjectThumbnail';
@@ -13,6 +14,25 @@ function hexToRgb(hex: string): string {
 }
 
 export default function BentoCaseStudyGrid() {
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid || window.matchMedia('(hover: hover)').matches) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          grid.classList.add('wave-animate');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(grid);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="work" className="py-24 md:py-32 bento-case-section">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -21,7 +41,7 @@ export default function BentoCaseStudyGrid() {
           <h2 className="text-3xl font-bold text-text-primary md:text-4xl">Case Studies</h2>
         </div>
 
-        <div className="bento-case-grid">
+        <div ref={gridRef} className="bento-case-grid">
           {projects.map((project) => (
             <Link
               key={project.slug}
