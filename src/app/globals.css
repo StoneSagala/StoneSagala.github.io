@@ -118,7 +118,7 @@ html {
   flex-direction: row;
   align-items: stretch;
   width: 100%;
-  min-height: 280px;
+  height: 420px;
   padding: 0;
   border-radius: 20px;
   border: 1px solid var(--border);
@@ -261,6 +261,46 @@ html {
 .card-spotlight:hover::before,
 .card-spotlight:focus-within::before {
   opacity: 1;
+}
+
+/* Responsive: stack image below text on small screens */
+@media (max-width: 640px) {
+  .bento-case-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .bento-particle-container {
+    flex-direction: column;
+  }
+
+  .bento-card__body {
+    justify-content: flex-start;
+    padding: 1.5rem;
+  }
+
+  .bento-card__thumbnail {
+    flex: 0 0 auto;
+    padding: 0 16px 16px;
+    width: 100%;
+  }
+
+  .bento-card__thumbnail img,
+  .bento-card__thumbnail svg {
+    height: 200px;
+  }
+}
+
+/* Mobile: replace hover spotlight with a static corner gradient */
+@media (hover: none) {
+  .card-spotlight.bento-case-card::before {
+    background: radial-gradient(
+      ellipse at 0% 100%,
+      rgba(var(--glow-color), 0.22) 0%,
+      transparent 65%
+    );
+    opacity: 1;
+  }
 }
 
 /* Tool chip — proximity border glow */
