@@ -9,7 +9,7 @@ export default function StatementSection() {
       <Container>
         <div className="max-w-4xl">
           <SplitText
-            text="Good products look good..."
+            text="Good products look great..."
             tag="h2"
             splitType="words"
             delay={60}
@@ -23,14 +23,14 @@ export default function StatementSection() {
             className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl"
           />
           <SplitText
-            text="great products feel simple."
+            text="but great products feel good."
             tag="h2"
             splitType="words"
             delay={60}
             duration={0.9}
             ease="power3.out"
             from={{ opacity: 0, y: 30 }}
-            to={{ opacity: 1, y: 0, delay: 1.0 }}
+            to={{ opacity: 1, y: 0, delay: 2.0 }}
             threshold={0.1}
             rootMargin="-60px"
             textAlign="left"
