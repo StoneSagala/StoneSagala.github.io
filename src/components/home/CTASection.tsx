@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 
 export default function CTASection() {
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section id="contact" className="border-t border-border py-24 md:py-32">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>

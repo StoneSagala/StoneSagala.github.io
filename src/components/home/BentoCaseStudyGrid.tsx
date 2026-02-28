@@ -67,7 +67,7 @@ export default function BentoCaseStudyGrid() {
                     <div className="bento-card__metrics">
                       {project.results.slice(0, 3).map((result) => (
                         <div key={result.label} className="bento-card__metric">
-                          <span className="bento-metric__value" style={{ color: project.color }}>
+                          <span className="bento-metric__value" style={{ color: project.color, fontSize: result.value === '∞' ? '2rem' : undefined, transform: result.value === '∞' ? 'translateY(3px)' : undefined, display: result.value === '∞' ? 'inline-block' : undefined }}>
                             {result.value}
                           </span>
                           <span className="bento-metric__label">{result.label}</span>
@@ -76,7 +76,7 @@ export default function BentoCaseStudyGrid() {
                     </div>
                   )}
                 </div>
-                <ProjectThumbnail slug={project.slug} color={project.color} />
+                <ProjectThumbnail slug={project.slug} color={project.color} image={project.thumbnail} />
               </SpotlightCard>
             </Link>
           ))}

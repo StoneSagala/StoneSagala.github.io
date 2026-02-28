@@ -112,15 +112,15 @@ export default function Hero() {
           <ScrollReveal delay={0.5}>
             <div className="mt-10 max-w-xl">
               <p className="text-lg leading-relaxed text-text-secondary">
-                Product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports. Confusion is a design problem ... I solve design problems.
+                Product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports.
               </p>
               <p className="mt-3 text-base text-text-primary">
-                UX Designer @{" "}
+                Product Designer @{" "}
                 <a
                   href="https://www.pdq.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-primary"
+                  className="text-accent underline-offset-2 hover:underline"
                 >
                   PDQ.com
                 </a>

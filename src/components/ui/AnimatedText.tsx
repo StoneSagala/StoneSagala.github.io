@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function AnimatedText({
@@ -13,6 +14,14 @@ export default function AnimatedText({
   as?: React.ElementType;
   delay?: number;
 }) {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    setPrefersReducedMotion(
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }, []);
+
   const words = text.split(" ");
 
   return (
@@ -20,14 +29,18 @@ export default function AnimatedText({
       {words.map((word, i) => (
         <motion.span
           key={i}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: delay + i * 0.08,
-            ease: [0.22, 1, 0.36, 1],
-          }}
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : {
+                  duration: 0.5,
+                  delay: delay + i * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }
+          }
           className="mr-[0.25em] inline-block"
         >
           {word}

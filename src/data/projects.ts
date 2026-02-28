@@ -22,9 +22,9 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "grouped-deployments-pdq",
-    title: "Grouped Deployments",
-    subtitle: "Grouped Deployments @ PDQ",
+    slug: "powershell-scanner-pdq",
+    title: "PowerShell Scanner",
+    subtitle: "One script to manage every device",
     company: "PDQ.com",
     description:
       "Redesigned the grouped deployments experience for PDQ, enabling IT administrators to deploy software across complex device groups with greater speed and confidence.",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     timeline: "2024",
     team: "2 designers, 6 engineers, 1 PM",
     tools: [],
-    thumbnail: "/images/projects/grouped-deployments-pdq/thumbnail.jpg",
+    thumbnail: "/images/projects/grouped-deployments-pdq/thumbnail.webp",
     color: "#4F7BF7",
     challenge:
       "IT admins were struggling to manage software deployments across large, complex device groups. The existing workflow required too many steps and lacked clear feedback, leading to errors and lost time.",
@@ -40,20 +40,16 @@ export const projects: Project[] = [
       "Redesigned the deployment flow with a clearer grouping model, real-time status feedback, and a streamlined interface that reduced the steps required to deploy across multiple device groups.",
     results: [
       {
-        label: "Faster Deployments",
-        value: "40%",
+        label: "possible configurations",
+        value: "∞",
         description: "Reduction in time to complete a grouped deployment",
       },
       {
-        label: "Error Rate",
-        value: "60%",
+        label: "most requested feature",
+        value: "#1",
         description: "Decrease in user-reported deployment errors",
       },
-      {
-        label: "CSAT Score",
-        value: "4.8",
-        description: "Out of 5 in post-launch satisfaction survey",
-      },
+
     ],
     sections: [
       {
@@ -73,7 +69,7 @@ export const projects: Project[] = [
   {
     slug: "design-system-klas",
     title: "Design System",
-    subtitle: "Design System @ KLAS",
+    subtitle: "From audit to documentation",
     company: "KLAS Research",
     description:
       "Built a comprehensive design system for KLAS Research, unifying component libraries and design tokens across multiple product teams to improve velocity and consistency.",
@@ -89,18 +85,18 @@ export const projects: Project[] = [
       "Designed and implemented a shared design system with reusable components, design tokens, and comprehensive documentation. Created governance processes and contribution guidelines to ensure adoption.",
     results: [
       {
-        label: "Faster Delivery",
-        value: "40%",
+        label: "projected savings",
+        value: "$800,000",
         description: "Reduction in design-to-development handoff time",
       },
       {
-        label: "Component Adoption",
-        value: "95%",
+        label: "WCAG compliant",
+        value: "AA",
         description: "Of new features built with design system components",
       },
       {
-        label: "Consistency Score",
-        value: "3x",
+        label: "month project",
+        value: "8 ",
         description: "Improvement in cross-product visual consistency",
       },
     ],
@@ -122,7 +118,7 @@ export const projects: Project[] = [
   {
     slug: "web-design-cvma",
     title: "Web Design",
-    subtitle: "Web Design @ CVMA",
+    subtitle: "Local company with world class talent",
     company: "Cache Valley Martial Arts",
     description:
       "Led the complete redesign of the Cache Valley Martial Arts website, improving class discovery, member engagement, and online registration.",
@@ -130,7 +126,7 @@ export const projects: Project[] = [
     timeline: "2022",
     team: "1 designer, 2 developers",
     tools: [],
-    thumbnail: "/images/projects/web-design-cvma/thumbnail.jpg",
+    thumbnail: "/images/projects/web-design-cvma/thumbnail.png",
     color: "#10B981",
     challenge:
       "CVMA's existing website was outdated and difficult to navigate, making it hard for prospective members to find class schedules and sign up. The site didn't reflect the quality of the gym.",
@@ -138,20 +134,21 @@ export const projects: Project[] = [
       "Conducted user research with current and prospective members, then redesigned the site with a clear information architecture, streamlined class registration, and a bold visual identity.",
     results: [
       {
-        label: "Member Sign-Ups",
-        value: "45%",
+        label: "Traffic increase",
+        value: "24%",
         description: "Increase in online membership registrations",
       },
       {
-        label: "Bounce Rate",
-        value: "30%",
+        label: "Local Google ranking",
+        value: "#1",
         description: "Reduction in homepage bounce rate",
       },
       {
-        label: "Session Duration",
-        value: "2x",
-        description: "Increase in average time spent on site",
+        label: "person quit their 9 to 5",
+        value: "1",
+        description: "Reduction in homepage bounce rate",
       },
+      
     ],
     sections: [
       {
@@ -169,10 +166,10 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "ai-projects",
-    title: "AI Projects",
-    subtitle: "AI Projects @ PDQ",
-    company: "PDQ",
+    slug: "voc-agent",
+    title: "AI Agent",
+    subtitle: "Collect, parse, categorize, and document user feedback",
+    company: "PDQ.com / Personal",
     description:
       "Designing AI-powered experiences at PDQ, shaping how IT admins interact with intelligent features that reduce manual work and surface smarter insights.",
     role: "UX Designer",
@@ -187,20 +184,21 @@ export const projects: Project[] = [
       "Designed AI-native interfaces that surface intelligent recommendations at the right moment, giving admins the control to accept, modify, or override — keeping humans in the loop.",
     results: [
       {
-        label: "Time Saved",
-        value: "3hrs",
+        label: "extraction accuracy score",
+        value: "85%",
         description: "Average weekly time saved per admin",
       },
       {
-        label: "Feature Adoption",
-        value: "72%",
+        label: "custom GPTs",
+        value: "2",
         description: "Of active users engaging with AI features",
       },
       {
-        label: "Trust Score",
-        value: "4.6",
-        description: "Out of 5 in AI transparency survey",
+        label: "feedback collected each quarter",
+        value: "200,000+",
+        description: "Of active users engaging with AI features",
       },
+
     ],
     sections: [
       {

@@ -7,10 +7,9 @@ import { usePathname } from "next/navigation";
 import MobileMenu from "./MobileMenu";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#work", label: "Work", external: false },
+  { href: "/resume.pdf", label: "Resume", external: true },
+  { href: "/#contact", label: "Contact", external: false },
 ];
 
 export default function Header() {
@@ -45,24 +44,16 @@ export default function Header() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
-              return (
+            {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`text-sm transition-colors hover:text-text-primary ${
-                    isActive ? "text-accent" : "text-text-secondary"
-                  }`}
+                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="text-sm text-text-secondary transition-colors hover:text-text-primary"
                 >
                   {link.label}
                 </Link>
-              );
-            })}
+            ))}
           </div>
 
           <button
@@ -71,6 +62,7 @@ export default function Header() {
             aria-label="Open menu"
           >
             <div className="flex flex-col gap-1.5">
+              <span className="block h-0.5 w-5 bg-text-primary" />
               <span className="block h-0.5 w-5 bg-text-primary" />
               <span className="block h-0.5 w-5 bg-text-primary" />
             </div>

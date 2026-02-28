@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#work", label: "Work", external: false },
+  { href: "/resume.pdf", label: "Resume", external: true },
+  { href: "/#contact", label: "Contact", external: false },
 ];
 
 export default function MobileMenu({ onClose }: { onClose: () => void }) {
@@ -73,6 +72,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
             <Link
               href={link.href}
               onClick={onClose}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="text-3xl font-medium text-text-primary"
             >
               {link.label}

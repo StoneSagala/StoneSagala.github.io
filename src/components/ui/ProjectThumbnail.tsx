@@ -332,19 +332,11 @@ const THUMBNAILS: Record<string, React.FC<{ color: string }>> = {
   'ai-projects':             AIProjectsThumbnail,
 };
 
-// Real screenshots — add slug: path here as images become available
-const REAL_IMAGES: Record<string, string> = {
-  'grouped-deployments-pdq': '/images/projects/grouped-deployments-pdq/thumbnail.webp',
-  'design-system-klas':      '/images/projects/design-system-klas/thumbnail.png',
-  'web-design-cvma':         '/images/projects/web-design-cvma/thumbnail.png',
-};
-
-export default function ProjectThumbnail({ slug, color }: { slug: string; color: string }) {
-  const realImage = REAL_IMAGES[slug];
-  if (realImage) {
+export default function ProjectThumbnail({ slug, color, image }: { slug: string; color: string; image?: string }) {
+  if (image) {
     return (
       <div className="bento-card__thumbnail" aria-hidden="true">
-        <img src={realImage} alt="" className="" />
+        <img src={image} alt="" className="" />
       </div>
     );
   }
