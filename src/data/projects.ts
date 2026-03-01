@@ -139,12 +139,12 @@ export const projects: Project[] = [
         description: "Increase in online membership registrations",
       },
       {
-        label: "Local Google ranking",
+        label: "local Google ranking",
         value: "#1",
         description: "Reduction in homepage bounce rate",
       },
       {
-        label: "person quit their 9 to 5",
+        label: "9 to 5 quit",
         value: "1",
         description: "Reduction in homepage bounce rate",
       },
