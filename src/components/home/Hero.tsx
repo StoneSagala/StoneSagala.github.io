@@ -110,10 +110,10 @@ export default function Hero() {
           <ScrollReveal delay={0.5}>
             <div className="mt-10 max-w-xl">
               <p className="text-lg leading-relaxed text-text-secondary">
-                SLC based product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports.
+                Salt Lake City based product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports.
               </p>
               <p className="mt-3 text-base text-text-primary">
-                Product Designer @{" "}
+                Currently @{" "}
                 <a
                   href="https://www.pdq.com"
                   target="_blank"
