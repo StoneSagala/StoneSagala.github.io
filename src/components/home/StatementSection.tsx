@@ -9,7 +9,7 @@ export default function StatementSection() {
       <Container>
         <div className="max-w-4xl">
           <SplitText
-            text="Good products look great..."
+            text="My job is to make products feel simple."
             tag="h2"
             splitType="words"
             delay={60}
@@ -23,7 +23,7 @@ export default function StatementSection() {
             className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl"
           />
           <SplitText
-            text="but great products feel good."
+            text="Because users didn't sign up for a learning curve. "
             tag="h2"
             splitType="words"
             delay={60}
