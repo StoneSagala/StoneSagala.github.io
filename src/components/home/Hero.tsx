@@ -43,8 +43,6 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const { color } = words[index];
-
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
 
@@ -112,7 +110,7 @@ export default function Hero() {
           <ScrollReveal delay={0.5}>
             <div className="mt-10 max-w-xl">
               <p className="text-lg leading-relaxed text-text-secondary">
-                Product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports.
+                SLC based product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports.
               </p>
               <p className="mt-3 text-base text-text-primary">
                 Product Designer @{" "}
@@ -131,7 +129,7 @@ export default function Hero() {
           <ScrollReveal delay={0.7}>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button href="#work">View Work</Button>
-              <Button href="/contact" variant="outline">
+              <Button href="#contact" variant="outline">
                 Get in Touch
               </Button>
             </div>

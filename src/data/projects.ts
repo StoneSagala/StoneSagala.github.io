@@ -77,7 +77,7 @@ export const projects: Project[] = [
     timeline: "2023 — 2024",
     team: "3 designers, 8 engineers",
     tools: [],
-    thumbnail: "/images/projects/design-system-klas/thumbnail.png",
+    thumbnail: "/images/projects/design-system-klas/thumbnail.webp",
     color: "#F59E0B",
     challenge:
       "Multiple product teams at KLAS were building interfaces independently, leading to inconsistent user experiences, duplicated effort, and slow onboarding for new team members.",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     timeline: "2022",
     team: "1 designer, 2 developers",
     tools: [],
-    thumbnail: "/images/projects/web-design-cvma/thumbnail.png",
+    thumbnail: "/images/projects/web-design-cvma/thumbnail.webp",
     color: "#10B981",
     challenge:
       "CVMA's existing website was outdated and difficult to navigate, making it hard for prospective members to find class schedules and sign up. The site didn't reflect the quality of the gym.",
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     timeline: "2024 — Present",
     team: "2 designers, 8 engineers, 1 PM",
     tools: [],
-    thumbnail: "/images/projects/ai-projects/thumbnail.jpg",
+    thumbnail: "/images/projects/ai-projects/thumbnail.webp",
     color: "#A855F7",
     challenge:
       "IT admins were spending hours on repetitive tasks that could be automated. The challenge was designing AI-assisted workflows that felt trustworthy and transparent, not overwhelming.",
