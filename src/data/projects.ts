@@ -10,6 +10,8 @@ export interface ProjectSection {
   image2?: string;
   imageSize?: "sm" | "full";
   video?: string;
+  beforeVideo?: string;
+  afterVideo?: string;
   blocks?: ProcessBlock[];
 }
 
@@ -29,7 +31,7 @@ export interface Project {
   challenge: string;
   solution: string;
   testimonial?: { text: string; author: string };
-  results: { label: string; value: string; description: string }[];
+  results: { label: string; value: string; description: string; link?: { text: string; url: string } }[];
   sections: ProjectSection[];
 }
 
@@ -107,6 +109,10 @@ export const projects: Project[] = [
         value: "$800K",
         description:
           "Calculated from time saved by developers and designers using the system instead of building components manually.",
+        link: {
+          text: "Learn More",
+          url: "https://medium.com/design-bootcamp/how-i-calculated-the-business-case-for-a-design-system-549def283eb5",
+        },
       },
       {
         label: "WCAG compliant",
@@ -210,15 +216,69 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Impact and outcomes",
-        body: "By the end of the project, the design system was estimated to be worth $800,000 — calculated from the time saved by developers and designers no longer building components from scratch. Here's the equation behind that number:",
+        title: "What changed?",
+        body: "",
+        beforeVideo: "/videos/design-system-klas/before.mp4",
+        afterVideo: "/videos/design-system-klas/after.mp4",
         blocks: [
           {
-            type: "link",
-            text: "How I calculated the business case for a design system",
-            url: "https://medium.com/design-bootcamp/how-i-calculated-the-business-case-for-a-design-system-549def283eb5",
+            type: "list",
+            items: [
+              "Complete accessibility — KLAS now has a fully accessible design system, letting designers work confidently and reducing legal liability.",
+              "Made headway on technical debt — developers could finally focus on innovation instead of sprint after sprint of bug fixes.",
+              "Created respect for design company-wide — collaborative sessions with multiple departments turned the design team into a real resource.",
+            ],
           },
         ],
+      },
+    ],
+  },
+  {
+    slug: "voc-agent",
+    title: "AI Agent",
+    subtitle: "Collect, parse, categorize, and document user feedback",
+    company: "PDQ.com / Personal",
+    description:
+      "Designing AI-powered experiences at PDQ, shaping how IT admins interact with intelligent features that reduce manual work and surface smarter insights.",
+    role: "UX Designer",
+    timeline: "2024 — Present",
+    team: "2 designers, 8 engineers, 1 PM",
+    tools: [],
+    thumbnail: "/images/projects/ai-projects/thumbnail.webp",
+    color: "#A855F7",
+    challenge:
+      "IT admins were spending hours on repetitive tasks that could be automated. The challenge was designing AI-assisted workflows that felt trustworthy and transparent, not overwhelming.",
+    solution:
+      "Designed AI-native interfaces that surface intelligent recommendations at the right moment, giving admins the control to accept, modify, or override — keeping humans in the loop.",
+    results: [
+      {
+        label: "extraction accuracy score",
+        value: "85%",
+        description: "Average weekly time saved per admin",
+      },
+      {
+        label: "custom GPTs",
+        value: "2",
+        description: "Of active users engaging with AI features",
+      },
+      {
+        label: "feedback collected each quarter",
+        value: "200,000+",
+        description: "Of active users engaging with AI features",
+      },
+    ],
+    sections: [
+      {
+        title: "Research & Principles",
+        body: "Established AI design principles for PDQ focused on transparency, control, and graceful failure — ensuring admins always understood what the AI was doing and why.",
+      },
+      {
+        title: "Interaction Patterns",
+        body: "Designed a suite of AI interaction patterns including inline suggestions, confidence indicators, and one-click overrides that balanced automation with admin control.",
+      },
+      {
+        title: "Testing & Iteration",
+        body: "Ran concept testing sessions with IT admins to validate trust and usability, iterating on the explainability and recovery patterns based on feedback.",
       },
     ],
   },
@@ -342,55 +402,6 @@ export const projects: Project[] = [
       {
         title: "Marketing plan",
         body: "I led a small team to create an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
-      },
-    ],
-  },
-  {
-    slug: "voc-agent",
-    title: "AI Agent",
-    subtitle: "Collect, parse, categorize, and document user feedback",
-    company: "PDQ.com / Personal",
-    description:
-      "Designing AI-powered experiences at PDQ, shaping how IT admins interact with intelligent features that reduce manual work and surface smarter insights.",
-    role: "UX Designer",
-    timeline: "2024 — Present",
-    team: "2 designers, 8 engineers, 1 PM",
-    tools: [],
-    thumbnail: "/images/projects/ai-projects/thumbnail.webp",
-    color: "#A855F7",
-    challenge:
-      "IT admins were spending hours on repetitive tasks that could be automated. The challenge was designing AI-assisted workflows that felt trustworthy and transparent, not overwhelming.",
-    solution:
-      "Designed AI-native interfaces that surface intelligent recommendations at the right moment, giving admins the control to accept, modify, or override — keeping humans in the loop.",
-    results: [
-      {
-        label: "extraction accuracy score",
-        value: "85%",
-        description: "Average weekly time saved per admin",
-      },
-      {
-        label: "custom GPTs",
-        value: "2",
-        description: "Of active users engaging with AI features",
-      },
-      {
-        label: "feedback collected each quarter",
-        value: "200,000+",
-        description: "Of active users engaging with AI features",
-      },
-    ],
-    sections: [
-      {
-        title: "Research & Principles",
-        body: "Established AI design principles for PDQ focused on transparency, control, and graceful failure — ensuring admins always understood what the AI was doing and why.",
-      },
-      {
-        title: "Interaction Patterns",
-        body: "Designed a suite of AI interaction patterns including inline suggestions, confidence indicators, and one-click overrides that balanced automation with admin control.",
-      },
-      {
-        title: "Testing & Iteration",
-        body: "Ran concept testing sessions with IT admins to validate trust and usability, iterating on the explainability and recovery patterns based on feedback.",
       },
     ],
   },

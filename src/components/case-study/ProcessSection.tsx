@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import VideoPlayer from "@/components/ui/VideoPlayer";
 import Lightbox from "@/components/ui/Lightbox";
+import BeforeAfterToggle from "@/components/ui/BeforeAfterToggle";
 import type { ProjectSection } from "@/data/projects";
 
 export default function ProcessSection({ sections }: { sections: ProjectSection[] }) {
@@ -99,6 +100,13 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                     <div className="max-w-4xl mx-auto">
                       <VideoPlayer src={section.video} />
                     </div>
+                  )}
+
+                  {section.beforeVideo && section.afterVideo && (
+                    <BeforeAfterToggle
+                      beforeVideo={section.beforeVideo}
+                      afterVideo={section.afterVideo}
+                    />
                   )}
                 </div>
               </div>

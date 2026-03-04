@@ -1,3 +1,4 @@
+import type React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { projects } from "@/data/projects";
@@ -42,7 +43,7 @@ export default async function CaseStudyPage({
   const nextProject = projects[(projectIndex + 1) % projects.length];
 
   return (
-    <article>
+    <article style={{ "--accent": project.color, "--accent-hover": project.color } as React.CSSProperties}>
       <CaseStudyHero project={project} />
 
       {project.summary && (

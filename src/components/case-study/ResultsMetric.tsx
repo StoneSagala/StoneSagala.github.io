@@ -9,6 +9,7 @@ interface Result {
   label: string;
   value: string;
   description: string;
+  link?: { text: string; url: string };
 }
 
 function MetricCard({ result, index }: { result: Result; index: number }) {
@@ -27,7 +28,22 @@ function MetricCard({ result, index }: { result: Result; index: number }) {
         {result.value}
       </p>
       <p className="mt-2 font-medium text-text-primary">{result.label}</p>
-      <p className="mt-1 text-sm text-text-secondary">{result.description}</p>
+      <p className="mt-1 text-sm text-text-secondary">
+        {result.description}
+        {result.link && (
+          <>
+            {" "}
+            <a
+              href={result.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              {result.link.text}
+            </a>
+          </>
+        )}
+      </p>
     </motion.div>
   );
 }
