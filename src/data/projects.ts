@@ -134,7 +134,7 @@ export const projects: Project[] = [
       },
       {
         title: "Developers were playing whack-a-mole",
-        body: "Imagine every time you wanted to change something on the website, you had to break another part of it? That was the developer's reality every sprint. Because of this, the company went further into technical debt — the backlog was cluttered with bug fixes, innovation was sidelined, and users were frustrated.",
+        body: "Imagine if every time you wanted to change something, on the website, you had to break another part of it. That was the developer's reality every sprint. Because of this, the company went further into technical debt — the backlog was cluttered with bug fixes, innovation was sidelined, and users were frustrated.",
       },
       {
         title: "What did this mean for the business?",
