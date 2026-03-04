@@ -291,7 +291,7 @@ export const projects: Project[] = [
       "Created a new website, optimized SEO, developed brand standards, and delivered a marketing campaign for a martial arts gym with world-class coaches.",
     role: "Lead Designer",
     timeline: "2022",
-    team: "1 Designer",
+    team: "Solo Designer",
     tools: [],
     thumbnail: "/images/projects/web-design-cvma/thumbnail.webp",
     color: "#10B981",
@@ -316,10 +316,10 @@ export const projects: Project[] = [
         label: "ranked on Google",
         value: "#1",
         description:
-          "Among fighting gyms in Logan, UT — driven by targeted local SEO and increased web traffic.",
+          "Among fighting gyms in Logan, UT & Southern Idaho — driven by targeted local SEO and increased web traffic.",
       },
       {
-        label: "person quit their 9 to 5",
+        label: "9 to 5 quit",
         value: "1",
         description:
           "Full classes and multiple champions — more coaches had to be brought in to accommodate the rise in students.",
@@ -329,10 +329,12 @@ export const projects: Project[] = [
       {
         title: "Undiscovered",
         body: "CVMA is full of some of the best coaches Utah has to offer. World team members, Gold Glove winners, and black belts could be found on their staff. CVMA wanted to take the next step to increase its customer base and grow its semi-pro fighting team.",
+        image: "/images/projects/web-design-cvma/gym-wall-punching-bag.webp",
       },
       {
         title: "A local gym with world level talent",
         body: "Have you ever been secretly good at something and it was fun to keep it on the down low? Well, CVMA was great at what they did and was tired of being kept secret. The problem was that CVMA is in Logan, UT — usually flooded with seasonal, broke college students. CVMA needed to switch its brand and marketing strategy to attract its real target audience: students and families.",
+        image: "/images/projects/web-design-cvma/gym-winning-medal.webp",
         blocks: [
           {
             type: "list",
@@ -374,14 +376,18 @@ export const projects: Project[] = [
       {
         title: "Establishing great information architecture",
         body: "Before we talked about UI, it was important to get the content right. Content is king when convincing potential clients to try something new and scary. It was critical to work with the business to create content that stayed true to the brand and made martial arts more inclusive. My research showed that our target audience wanted a low-risk trial period as well as to be educated on the benefits of martial arts.",
+        image: "/images/projects/web-design-cvma/webpage-hero-section.webp",
+        image2: "/images/projects/web-design-cvma/coaches-intro-web-section.webp",
       },
       {
         title: "Choosing a font and voice",
         body: "CVMA's voice needed to be friendly and inviting but sound confident and full of authority — to encourage students and families to try something new while reinforcing that CVMA staff were trained professionals. I chose \"Impact\" as the header font paired with \"din-next\" as the body font to emphasize boldness and authority. The language on the website changed from wishy-washy to definite and inviting. For example: \"Safety is a top priority\" became \"Your child will be safe.\"",
+        image: "/images/projects/web-design-cvma/martial-art-style-web-section.webp",
       },
       {
         title: "Getting ranked #1",
         body: "A new website and brand can only get you so far if people can't find you. It was important to research the trending keywords in the area that would get CVMA to the top of Google listings. Some of the top keywords implemented into content and page descriptions were:",
+        image: "/images/projects/web-design-cvma/google-listing.webp",
         blocks: [
           {
             type: "keywords",
@@ -398,10 +404,12 @@ export const projects: Project[] = [
       {
         title: "Creating a scalable system",
         body: "I was concerned about creating a system that would be hard for them to manage after the project ended. The business was excited about the rebrand but needed help ensuring scalability. I worked with the owners to install a booking system that would automatically inform coaches of new students attending and how large class sizes would be.",
+        image: "/images/projects/web-design-cvma/online-booking-web-section.webp",
       },
       {
         title: "Marketing plan",
         body: "I led a small team to create an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
+        image: "/images/projects/web-design-cvma/social-media-images.webp",
       },
     ],
   },

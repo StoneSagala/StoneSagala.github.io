@@ -112,6 +112,14 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
     );
   }
 
+  if (tool.customIcon === "zapier") {
+    return (
+      <svg viewBox="0 0 24 24" fill={color} {...svgProps}>
+        <path d="M14.5 2.5l-9 10H12l-1.5 9 9-11H13z" />
+      </svg>
+    );
+  }
+
   return (
     <span className="flex h-5 w-5 shrink-0 items-center justify-center font-mono text-xs font-semibold" style={{ color }} aria-hidden>
       {tool.name[0]}

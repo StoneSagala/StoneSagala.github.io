@@ -40,6 +40,7 @@ export const tools: Tool[] = [
   { name: "ChatGPT",  category: "AI", customIcon: "chatgpt" },
   { name: "N8N",      category: "AI", iconKey: "siN8n" },
   { name: "Tray.ai",  category: "AI", customIcon: "tray" },
+  { name: "Zapier",   category: "AI", customIcon: "zapier" },
 
   // Frameworks
   { name: "Agile",  category: "Frameworks", customIcon: "agile" },
