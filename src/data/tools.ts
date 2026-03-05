@@ -6,7 +6,7 @@ export interface Tool {
   /** Key from simple-icons (e.g. "siFigma") */
   iconKey?: string;
   /** For tools not in simple-icons */
-  customIcon?: "chatgpt" | "grain" | "figjam" | "tray" | "agile" | "ooux";
+  customIcon?: "chatgpt" | "grain" | "figjam" | "tray" | "agile" | "ooux" | "zapier";
 }
 
 export const tools: Tool[] = [
