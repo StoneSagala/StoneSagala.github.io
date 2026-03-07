@@ -38,7 +38,7 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                   )}
 
                   {section.image && section.image2 && (
-                    <div className={`mt-8 grid grid-cols-2 gap-4 ${section.imageSize === "sm" ? "max-w-lg mx-auto" : section.imageSize === "medium" ? "max-w-3xl mx-auto" : ""}`}>
+                    <div className={`mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 ${section.imageSize === "sm" ? "max-w-lg mx-auto" : section.imageSize === "medium" ? "max-w-3xl mx-auto" : ""}`}>
                       <div className="overflow-hidden rounded-xl">
                         <Lightbox src={section.image} alt={section.title} />
                       </div>
