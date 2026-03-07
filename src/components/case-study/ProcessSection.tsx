@@ -31,6 +31,23 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                     </p>
                   )}
 
+                  {section.image && !section.image2 && (
+                    <div className={`mt-4 overflow-hidden rounded-xl mx-auto ${section.imageSize === "full" ? "max-w-5xl" : section.imageSize === "medium" ? "max-w-2xl" : "max-w-xl"}`}>
+                      <Lightbox src={section.image} alt={section.title} />
+                    </div>
+                  )}
+
+                  {section.image && section.image2 && (
+                    <div className={`mt-8 grid grid-cols-2 gap-4 ${section.imageSize === "sm" ? "max-w-lg mx-auto" : section.imageSize === "medium" ? "max-w-3xl mx-auto" : ""}`}>
+                      <div className="overflow-hidden rounded-xl">
+                        <Lightbox src={section.image} alt={section.title} />
+                      </div>
+                      <div className="overflow-hidden rounded-xl">
+                        <Lightbox src={section.image2} alt={section.title} />
+                      </div>
+                    </div>
+                  )}
+
                   {section.blocks?.map((block, bi) => {
                     if (block.type === "list") {
                       return (
@@ -100,11 +117,12 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                     }
 
                     if (block.type === "gallery") {
-                      const cols = block.images.length <= 2 ? "sm:grid-cols-2" : block.images.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4";
+                      const colCount = block.columns ?? (block.images.length <= 2 ? 2 : block.images.length === 3 ? 3 : 4);
+                      const colClass = colCount === 2 ? "sm:grid-cols-2" : colCount === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4";
                       return (
-                        <div key={bi} className={`mt-8 grid gap-3 grid-cols-2 ${cols}`}>
+                        <div key={bi} className={`mt-8 grid gap-3 grid-cols-2 ${colClass}`}>
                           {block.images.map((src, ii) => (
-                            <div key={ii} className="overflow-hidden rounded-xl border border-border">
+                            <div key={ii} className="aspect-[4/3] overflow-hidden rounded-xl [&_img]:h-full [&_img]:w-full [&_img]:object-cover">
                               <Lightbox src={src} alt="" />
                             </div>
                           ))}
@@ -153,23 +171,6 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
 
                     return null;
                   })}
-
-                  {section.image && !section.image2 && (
-                    <div className={`mt-8 overflow-hidden rounded-xl border border-border ${section.imageSize !== "full" ? "max-w-xl mx-auto" : ""}`}>
-                      <Lightbox src={section.image} alt={section.title} />
-                    </div>
-                  )}
-
-                  {section.image && section.image2 && (
-                    <div className={`mt-8 grid grid-cols-2 gap-4 ${section.imageSize === "sm" ? "max-w-lg mx-auto" : ""}`}>
-                      <div className="overflow-hidden rounded-xl border border-border">
-                        <Lightbox src={section.image} alt={section.title} />
-                      </div>
-                      <div className="overflow-hidden rounded-xl border border-border">
-                        <Lightbox src={section.image2} alt={section.title} />
-                      </div>
-                    </div>
-                  )}
 
                   {section.video && (
                     <div className="max-w-4xl mx-auto">

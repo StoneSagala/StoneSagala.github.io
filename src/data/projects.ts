@@ -5,14 +5,14 @@ export type ProcessBlock =
   | { type: "link"; text: string; url: string }
   | { type: "expandable"; label: string; sections: { heading: string; items: string[] }[] }
   | { type: "mosaic"; images: string[] }
-  | { type: "gallery"; images: string[] };
+  | { type: "gallery"; images: string[]; columns?: 2 | 3 | 4 };
 
 export interface ProjectSection {
   title: string;
   body: string;
   image?: string;
   image2?: string;
-  imageSize?: "sm" | "full";
+  imageSize?: "sm" | "medium" | "full";
   video?: string;
   beforeVideo?: string;
   afterVideo?: string;
@@ -90,6 +90,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "gallery",
+            columns: 2,
             images: [
               "/images/projects/powershell-scanner-pdq/di-powershell-scanner.webp",
               "/images/projects/powershell-scanner-pdq/di-scanner-selection.webp",
@@ -103,6 +104,7 @@ export const projects: Project[] = [
         title: "Three problems we had to solve",
         body: "Our first designs looked like a natural evolution of the original. When we tested early, the feedback was consistent: \"This is exactly what we expected.\" But when we brought those designs to engineering, three problems emerged that changed everything.",
         image: "/images/projects/powershell-scanner-pdq/v1-powershell-page.webp",
+        imageSize: "full",
         blocks: [
           {
             type: "list",
@@ -182,7 +184,6 @@ export const projects: Project[] = [
       {
         title: "Making PowerShell approachable",
         body: "A blank code editor is intimidating if you've never written a script before. I built two things into the UI to close that gap.",
-        image: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
         blocks: [
           {
             type: "list",
@@ -198,17 +199,18 @@ export const projects: Project[] = [
         body: "The original scanner output whatever structure the user gave it — right or wrong. That worked on desktop where admins managed their own data. In Connect, filters and automations need typed, predictable data to function. So after testing on one device, admins assign a data type to each column their script returns: String, Integer, Float, Boolean, Date.\n\nWe were worried users would see this as extra friction. Instead, it became one of the most praised parts of the design — and more than a few people said they wished D&I had it.",
         image: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
         image2: "/images/projects/powershell-scanner-pdq/final-draft-modal.webp",
-        imageSize: "sm",
+        imageSize: "full",
       },
       {
         title: "Scanners as a fleet superpower",
         body: "The 3-step workflow solved the system strain problem too. Scripts don't run fleet-wide until the admin confirms the output looks right on one device first — eliminating the risk of a bad script taking down infrastructure for everyone.\n\nOnce validated, scanner data becomes a filter condition and automation trigger across Connect. Check BitLocker status, group every at-risk device, deploy a fix, and automate it going forward — all from one scanner.",
         image: "/images/projects/powershell-scanner-pdq/final-filter-dropdown.webp",
+        imageSize: "full",
         blocks: [
           {
             type: "link",
             text: "Try the Figma prototype",
-            url: "https://www.figma.com/proto/PZrWAa8lOebnSHZRkaRUVw/Prototypes?page-id=0%3A1&node-id=172-47158&p=f&viewport=80%2C364%2C0.08&t=5bhOSKUzukzWI5W3-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=172%3A47158",
+            url: "https://www.figma.com/proto/PZrWAa8lOebnSHZRkaRUVw/Prototypes?page-id=0%3A1&node-id=172-47158&p=f&viewport=80%2C364%2C0.08&t=5bhOSKUzukzWI5W3-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=172%3A47158",
           },
         ],
       },
