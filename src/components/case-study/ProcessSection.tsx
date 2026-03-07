@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import VideoPlayer from "@/components/ui/VideoPlayer";
@@ -95,6 +96,41 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                         <p key={bi} className="mt-6 text-lg leading-relaxed text-text-secondary">
                           {block.content}
                         </p>
+                      );
+                    }
+
+                    if (block.type === "gallery") {
+                      const cols = block.images.length <= 2 ? "sm:grid-cols-2" : block.images.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4";
+                      return (
+                        <div key={bi} className={`mt-8 grid gap-3 grid-cols-2 ${cols}`}>
+                          {block.images.map((src, ii) => (
+                            <div key={ii} className="overflow-hidden rounded-xl border border-border">
+                              <Lightbox src={src} alt="" />
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+
+                    if (block.type === "mosaic") {
+                      const cardStyles = [
+                        { transform: "rotate(-2deg) translateX(-20px)", zIndex: 4, marginBottom: "-80px" },
+                        { transform: "rotate(1.5deg) translateX(24px)",  zIndex: 3, marginBottom: "-80px" },
+                        { transform: "rotate(-1deg) translateX(-12px)",  zIndex: 2, marginBottom: "-80px" },
+                        { transform: "rotate(2.5deg) translateX(16px)",  zIndex: 1, marginBottom: "0px"   },
+                      ];
+                      return (
+                        <div key={bi} className="relative mt-10 flex flex-col">
+                          {block.images.map((src, ii) => (
+                            <div
+                              key={ii}
+                              className="relative w-full"
+                              style={cardStyles[ii % cardStyles.length]}
+                            >
+                              <Image src={src} alt="" width={1200} height={400} className="block w-full h-auto" />
+                            </div>
+                          ))}
+                        </div>
                       );
                     }
 

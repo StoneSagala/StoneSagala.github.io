@@ -3,7 +3,9 @@ export type ProcessBlock =
   | { type: "keywords"; items: string[] }
   | { type: "text"; content: string }
   | { type: "link"; text: string; url: string }
-  | { type: "expandable"; label: string; sections: { heading: string; items: string[] }[] };
+  | { type: "expandable"; label: string; sections: { heading: string; items: string[] }[] }
+  | { type: "mosaic"; images: string[] }
+  | { type: "gallery"; images: string[] };
 
 export interface ProjectSection {
   title: string;
@@ -79,14 +81,32 @@ export const projects: Project[] = [
       {
         title: "The #1 most requested feature",
         body: "When admins moved from D&I to Connect, they lost access to their PowerShell scripts. Workflows they had built over years suddenly needed workarounds. The frustration showed up everywhere — support tickets, forums, Discord threads. It was the most requested feature for years.",
-        image: "/images/projects/powershell-scanner-pdq/discord-comment-1.webp",
-        image2: "/images/projects/powershell-scanner-pdq/discord-comment-4.webp",
-        imageSize: "sm",
+        blocks: [
+          {
+            type: "mosaic",
+            images: [
+              "/images/projects/powershell-scanner-pdq/discord-comment-1.webp",
+              "/images/projects/powershell-scanner-pdq/discord-comment-2.webp",
+              "/images/projects/powershell-scanner-pdq/discord-comment-3.webp",
+              "/images/projects/powershell-scanner-pdq/discord-comment-4.webp",
+            ],
+          },
+        ],
       },
       {
         title: "Left behind when we moved to the cloud",
         body: "This is the original scanner — a Windows desktop dialog that IT admins had used for over a decade. When we first talked about bringing it to Connect, it seemed straightforward. We'd rebuild the UI, match the functionality, and ship it. We had no idea how complex it would turn out to be.",
-        image: "/images/projects/powershell-scanner-pdq/di-powershell-scanner.webp",
+        blocks: [
+          {
+            type: "gallery",
+            images: [
+              "/images/projects/powershell-scanner-pdq/di-powershell-scanner.webp",
+              "/images/projects/powershell-scanner-pdq/di-scanner-selection.webp",
+              "/images/projects/powershell-scanner-pdq/di-scanner-data.webp",
+              "/images/projects/powershell-scanner-pdq/di-how-to-scan.webp",
+            ],
+          },
+        ],
       },
       {
         title: "Three problems we had to solve",
