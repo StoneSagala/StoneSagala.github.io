@@ -65,7 +65,7 @@ export default async function CaseStudyPage({
         challenge={project.challenge}
         solution={project.solution}
       />
-      <ProcessSection sections={project.sections} />
+      <ProcessSection sections={project.sections} label={project.processLabel} />
       <ResultsSection results={project.results} />
 
       {project.testimonial && (

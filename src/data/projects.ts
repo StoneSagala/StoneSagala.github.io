@@ -5,7 +5,8 @@ export type ProcessBlock =
   | { type: "link"; text: string; url: string }
   | { type: "expandable"; label: string; sections: { heading: string; items: string[] }[] }
   | { type: "mosaic"; images: string[] }
-  | { type: "gallery"; images: string[]; columns?: 2 | 3 | 4 };
+  | { type: "gallery"; images: string[]; columns?: 2 | 3 | 4 }
+  | { type: "stat"; value: string; label: string };
 
 export interface ProjectSection {
   title: string;
@@ -36,6 +37,8 @@ export interface Project {
   solution: string;
   testimonial?: { text: string; author: string };
   complete?: boolean;
+  heroTitle?: string;
+  processLabel?: { eyebrow: string; heading: string };
   results: { label: string; value: string; description: string; link?: { text: string; url: string } }[];
   sections: ProjectSection[];
 }
@@ -55,7 +58,7 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/grouped-deployments-pdq/thumbnail.webp",
     color: "#4F7BF7",
     summary:
-      "I led the end-to-end redesign of PDQ's PowerShell Scanner, the #1 most requested feature for their cloud platform, Connect. This included designing a guided three-step creation workflow, learning PowerShell myself to understand the experience firsthand, running rapid user testing with the Discord community, and building a script library to lower the barrier for newer admins. By the end, the feature shipped to strong customer reception after years of demand — turning a 12-year-old desktop tool into a structured, cloud-native workflow any admin could use.",
+      "I led the end-to-end redesign of PDQ's PowerShell Scanner, the #1 most requested feature for their cloud platform, Connect. This included designing a guided three-step creation workflow, learning PowerShell myself to understand the experience firsthand, running rapid user testing with the Discord community, and building a script library to lower the barrier for newer admins. By the end, the feature shipped to strong customer reception after years of demand, turning a 12-year-old desktop tool into a structured, cloud-native workflow any admin could use.",
     challenge:
       "PowerShell is the go-to language for managing Windows computers. For over 12 years, IT admins used PDQ's PowerShell Scanner to pull device data (battery health, uptime, software compliance, etc.) and use it to automatically control their environment. When PDQ launched Connect, the scanner didn't come with it. The feature required PowerShell knowledge, could overload servers, and returned data in any format the user chose. We had to solve all three before it could ship.",
     solution:
@@ -83,6 +86,16 @@ export const projects: Project[] = [
         body: "When admins moved from D&I to Connect, they lost access to their PowerShell scripts. Workflows they had built over years suddenly needed workarounds. The frustration showed up everywhere: support tickets, forums, Discord threads. It was the most requested feature for years.",
         image: "/images/projects/powershell-scanner-pdq/discord-comments-composite.webp",
         imageSize: "full",
+        blocks: [
+          {
+            type: "gallery",
+            columns: 2,
+            images: [
+              "/images/projects/powershell-scanner-pdq/discord-comment-1.webp",
+              "/images/projects/powershell-scanner-pdq/discord-comment-4.webp",
+            ],
+          },
+        ],
       },
       {
         title: "Left behind when we moved to the cloud",
@@ -180,10 +193,14 @@ export const projects: Project[] = [
         title: "Going straight to the source",
         body: "I reached out to the same community that had been asking for this feature for years. Within two weeks I scheduled over 7 calls. Since I didn't have prototypes yet, their feedback helped me iterate for the next call. They were the right people to pressure-test it. They knew the old scanner inside and out, and they weren't shy about telling us when something felt off.",
         image: "/images/projects/powershell-scanner-pdq/discord-outreach.webp",
+        image2: "/images/projects/powershell-scanner-pdq/discord-comment-3.webp",
+        imageSize: "sm",
       },
       {
         title: "Making PowerShell approachable",
         body: "A blank code editor is intimidating if you've never written a script before. I built two things into the UI to close that gap.",
+        image: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
+        imageSize: "full",
         blocks: [
           {
             type: "list",
@@ -205,7 +222,8 @@ export const projects: Project[] = [
         title: "Scanners as a fleet superpower",
         body: "The 3-step workflow solved the system strain problem too. Scripts don't run fleet-wide until the admin confirms the output looks right on one device first, eliminating the risk of a bad script taking down infrastructure for everyone.\n\nOnce validated, scanner data becomes a filter condition and automation trigger across Connect. Check BitLocker status, group every at-risk device, deploy a fix, and automate it going forward. All from one scanner.",
         image: "/images/projects/powershell-scanner-pdq/final-filter-dropdown.webp",
-        imageSize: "full",
+        image2: "/images/projects/powershell-scanner-pdq/discord-comment-2.webp",
+        imageSize: "sm",
         blocks: [
           {
             type: "link",
@@ -369,49 +387,65 @@ export const projects: Project[] = [
     slug: "voc-agent",
     complete: false,
     title: "AI Projects",
-    subtitle: "A collection of AI projects I've built and am currently working on",
+    heroTitle: "My Projects",
+    subtitle: "Shipping AI tools, not just talking about them.",
     company: "PDQ.com / Personal",
     description:
-      "A growing collection of AI-powered projects, from tools I've shipped at PDQ to personal experiments exploring how design can shape more intuitive, trustworthy AI experiences.",
-    role: "UX Designer",
-    timeline: "2024–Present",
-    team: "2 designers, 8 engineers, 1 PM",
+      "A snapshot of the AI tools I've shipped at PDQ, what I'm building next, and where I see it all going.",
+    role: "",
+    timeline: "",
+    team: "",
+    processLabel: { eyebrow: "What I'm Building", heading: "Some of what I'm building" },
     tools: [],
     thumbnail: "/images/projects/ai-projects/thumbnail.webp",
     color: "#A855F7",
     challenge:
-      "IT admins were spending hours on repetitive tasks that could be automated. The challenge was designing AI-assisted workflows that felt trustworthy and transparent, not overwhelming.",
+      "Good AI ideas are everywhere. The harder problem is building AI tools that actually change how work gets done — tools reliable enough to trust, specific enough to be useful, and simple enough that people actually use them.",
     solution:
-      "Designed AI-native interfaces that surface intelligent recommendations at the right moment, giving admins the control to accept, modify, or override while keeping humans in the loop.",
+      "I've been building AI tools at PDQ and on my own time: automations that process real data at scale, GPTs trained on competitive intelligence, and a growing system for using AI agents to accelerate product development itself.",
     results: [
       {
-        label: "extraction accuracy",
-        value: "85%",
-        description: "Accuracy rate for the VoC agent extracting structured insights from customer feedback.",
-      },
-      {
-        label: "custom GPTs built",
-        value: "2",
-        description: "Custom GPTs designed and shipped for internal and customer-facing use cases.",
-      },
-      {
-        label: "feedback processed",
-        value: "200,000+",
-        description: "Customer feedback records processed per quarter by the VoC extraction pipeline.",
+        label: "estimated time saved per quarter across all tools",
+        value: "7+ weeks",
+        description: "6 weeks from automating feedback processing with the VoC agent, plus 1 week from on-demand competitive research.",
       },
     ],
     sections: [
       {
-        title: "Research & Principles",
-        body: "Established AI design principles for PDQ focused on transparency, control, and graceful failure, ensuring admins always understood what the AI was doing and why.",
+        title: "Voice of the Customer, at scale",
+        body: "PDQ collects customer feedback across call transcripts, help desk tickets, NPS surveys, and more — but that data was scattered, inconsistent, and too noisy to act on at scale. I built an AI agent that automatically ingests all of it, filters out noise, extracts valid feedback, and categorizes it by theme and product area. The next step is surfacing that as a living knowledge base any employee can tap into for research or roadmap planning, without reading a single raw ticket.",
+        image: "/images/projects/ai-projects/voc-evaluation.webp",
+        imageSize: "full",
+        blocks: [
+          { type: "stat", value: "6 weeks", label: "of manual work saved every quarter" },
+        ],
       },
       {
-        title: "Interaction Patterns",
-        body: "Designed a suite of AI interaction patterns including inline suggestions, confidence indicators, and one-click overrides that balanced automation with admin control.",
+        title: "A GPT that never stops watching the competition",
+        body: "Describe the problem you're solving and the Jobs to be Done you're designing for, and this GPT does the rest. It scrapes competitor documentation, social media, and other relevant sources, then surfaces screenshots and pertinent information you can pull directly into your research. No more manually hunting through five different products to figure out what the market is doing.",
+        image: "/images/projects/ai-projects/competitors-documentation.webp",
+        imageSize: "full",
+        blocks: [
+          { type: "stat", value: "1 week", label: "of research compressed into minutes" },
+        ],
       },
       {
-        title: "Testing & Iteration",
-        body: "Ran concept testing sessions with IT admins to validate trust and usability, iterating on the explainability and recovery patterns based on feedback.",
+        title: "Vibe coding a proof of concept at PDQ",
+        body: "I wanted to know if vibe coding could produce something real — not a toy, but a working proof of concept worth showing. The result: a managed software center that installs software on a device, scans to confirm it's there, and logs each deployment stage in a working mockup of PDQ Connect. It ran in a local environment, but the loop was complete: deploy, verify, report. The next step is connecting it to an AI agent that can make deployment decisions autonomously.",
+        image: "/images/projects/ai-projects/managed-software-center.webp",
+        imageSize: "full",
+        blocks: [
+          { type: "stat", value: "Months", label: "of traditional dev time saved on a working POC" },
+        ],
+      },
+      {
+        title: "After that: a tournament platform I've been building for a year",
+        body: "I've spent a year designing a tournament management platform for combat sports — think Flow Wrestling or Trackwrestling, but built for the modern era. Bracket management, registration, live scoring, athlete profiles. I have the design. Vibe coding is the mechanism I plan to use to bring the full product to life.",
+        image: "/images/projects/ai-projects/mat-master.webp",
+        imageSize: "full",
+        blocks: [
+          { type: "stat", value: "Years", label: "of projected dev time saved by building with AI" },
+        ],
       },
     ],
   },

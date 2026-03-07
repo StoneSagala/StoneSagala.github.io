@@ -30,14 +30,9 @@ export default function CTASection() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.4}>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              {/* TODO: Replace with Calendly link when ready */}
-              <Button href="https://calendly.com/stonesagala">Schedule a Call</Button>
-              <Button
-                href="https://linkedin.com/in/stonesagala"
-                variant="outline"
-              >
-                LinkedIn
+            <div className="mt-8 flex justify-center">
+              <Button href="https://linkedin.com/in/stonesagala">
+                Message me on LinkedIn
               </Button>
             </div>
           </ScrollReveal>

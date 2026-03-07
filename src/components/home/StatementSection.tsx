@@ -30,7 +30,7 @@ export default function StatementSection() {
             duration={0.9}
             ease="power3.out"
             from={{ opacity: 0, y: 30 }}
-            to={{ opacity: 1, y: 0, delay: 2.0 }}
+            to={{ opacity: 1, y: 0, delay: 1.0 }}
             threshold={0.1}
             rootMargin="-60px"
             textAlign="left"

@@ -83,12 +83,11 @@ export default function ContactPage() {
         <ScrollReveal delay={0.4}>
           <div className="mx-auto mt-16 max-w-xl text-center">
             <p className="text-text-secondary">
-              Prefer a quick chat? Schedule a 15-minute call.
+              LinkedIn is the fastest way to reach me.
             </p>
             <div className="mt-4">
-              {/* TODO: Replace with Calendly link when ready */}
-              <Button href="https://calendly.com/stonesagala" variant="outline">
-                Schedule a Call
+              <Button href="https://linkedin.com/in/stonesagala" variant="outline">
+                Message me on LinkedIn
               </Button>
             </div>
           </div>

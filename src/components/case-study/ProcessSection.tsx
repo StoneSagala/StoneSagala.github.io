@@ -6,22 +6,25 @@ import Lightbox from "@/components/ui/Lightbox";
 import BeforeAfterToggle from "@/components/ui/BeforeAfterToggle";
 import type { ProjectSection } from "@/data/projects";
 
-export default function ProcessSection({ sections }: { sections: ProjectSection[] }) {
+export default function ProcessSection({ sections, label }: { sections: ProjectSection[]; label?: { eyebrow: string; heading: string } }) {
   return (
     <section className="border-t border-border py-16 md:py-24">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">Process</p>
+          <p className="mb-2 font-mono text-sm text-accent">{label?.eyebrow ?? "Process"}</p>
           <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
-            How I Got There
+            {label?.heading ?? "How I Got There"}
           </h2>
         </ScrollReveal>
 
         <div className="mt-12 space-y-16">
-          {sections.map((section, i) => (
+          {sections.map((section, i) => {
+            const hasSingleImage = !!(section.image && !section.image2);
+            const isReversed = i % 2 === 1;
+            return (
             <ScrollReveal key={section.title} delay={i * 0.08}>
-              <div>
-                <div>
+              <div className={hasSingleImage ? `flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 md:items-center` : ``}>
+                <div className={hasSingleImage && isReversed ? "md:order-2" : ""}>
                   <h3 className="text-xl font-semibold text-text-primary">
                     {section.title}
                   </h3>
@@ -29,12 +32,6 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                     <p className="mt-3 text-lg leading-relaxed text-text-secondary">
                       {section.body}
                     </p>
-                  )}
-
-                  {section.image && !section.image2 && (
-                    <div className={`mt-4 overflow-hidden rounded-xl mx-auto ${section.imageSize === "full" ? "max-w-5xl" : section.imageSize === "medium" ? "max-w-2xl" : "max-w-xl"}`}>
-                      <Lightbox src={section.image} alt={section.title} />
-                    </div>
                   )}
 
                   {section.image && section.image2 && (
@@ -152,6 +149,15 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                       );
                     }
 
+                    if (block.type === "stat") {
+                      return (
+                        <div key={bi} className="mt-6 inline-block border-l-2 border-accent pl-4">
+                          <p className="text-3xl font-semibold text-text-primary">{block.value}</p>
+                          <p className="mt-0.5 font-mono text-sm text-text-tertiary">{block.label}</p>
+                        </div>
+                      );
+                    }
+
                     if (block.type === "link") {
                       return (
                         <a
@@ -185,9 +191,16 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                     />
                   )}
                 </div>
+
+                {hasSingleImage && (
+                  <div className={`overflow-hidden rounded-xl ${isReversed ? "md:order-1" : ""}`}>
+                    <Lightbox src={section.image!} alt={section.title} />
+                  </div>
+                )}
               </div>
             </ScrollReveal>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
