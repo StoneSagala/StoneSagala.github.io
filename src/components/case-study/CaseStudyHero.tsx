@@ -13,7 +13,7 @@ export default function CaseStudyHero({ project }: { project: Project }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-4 font-mono text-sm text-accent">{project.role}</p>
+          <p className="mb-4 font-mono text-sm text-accent">{project.company}</p>
           <h1 className="text-4xl font-semibold text-text-primary md:text-6xl">
             {project.title}
           </h1>

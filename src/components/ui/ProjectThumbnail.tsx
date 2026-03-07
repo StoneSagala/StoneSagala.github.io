@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 // Portfolio dark theme palette
 const C = {
@@ -329,14 +330,14 @@ const THUMBNAILS: Record<string, React.FC<{ color: string }>> = {
   'grouped-deployments-pdq': DeploymentsThumbnail,
   'design-system-klas':      DesignSystemThumbnail,
   'web-design-cvma':         WebDesignThumbnail,
-  'ai-projects':             AIProjectsThumbnail,
+  'voc-agent':               AIProjectsThumbnail,
 };
 
 export default function ProjectThumbnail({ slug, color, image }: { slug: string; color: string; image?: string }) {
   if (image) {
     return (
       <div className="bento-card__thumbnail" aria-hidden="true">
-        <img src={image} alt="" className="" />
+        <Image src={image} alt="" width={600} height={400} className="block w-full h-auto" />
       </div>
     );
   }

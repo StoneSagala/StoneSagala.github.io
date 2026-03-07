@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "/#work", label: "Work", external: false },
+  { href: "/about", label: "About", external: false },
   { href: "/resume.pdf", label: "Resume", external: true },
   { href: "/#contact", label: "Contact", external: false },
 ];

@@ -59,6 +59,45 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                       );
                     }
 
+                    if (block.type === "expandable") {
+                      return (
+                        <details key={bi} className="mt-6 rounded-xl border border-border overflow-hidden group">
+                          <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-mono text-sm text-text-primary hover:bg-bg-elevated transition-colors">
+                            <span>{block.label}</span>
+                            <svg
+                              className="w-4 h-4 text-accent shrink-0 transition-transform duration-200 group-open:rotate-180"
+                              viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"
+                            >
+                              <path d="M3 6l5 5 5-5" />
+                            </svg>
+                          </summary>
+                          <div className="border-t border-border px-5 py-6 space-y-6 bg-bg-secondary">
+                            {block.sections.map((s, si) => (
+                              <div key={si}>
+                                <p className="font-mono text-xs text-accent mb-3 uppercase tracking-wider">{s.heading}</p>
+                                <ul className="space-y-2">
+                                  {s.items.map((item, ii) => (
+                                    <li key={ii} className="flex items-start gap-3 text-sm text-text-secondary leading-relaxed">
+                                      <span className="mt-2 h-px w-3 shrink-0 bg-accent" aria-hidden="true" />
+                                      {item}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        </details>
+                      );
+                    }
+
+                    if (block.type === "text") {
+                      return (
+                        <p key={bi} className="mt-6 text-lg leading-relaxed text-text-secondary">
+                          {block.content}
+                        </p>
+                      );
+                    }
+
                     if (block.type === "link") {
                       return (
                         <a

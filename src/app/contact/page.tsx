@@ -86,7 +86,8 @@ export default function ContactPage() {
               Prefer a quick chat? Schedule a 15-minute call.
             </p>
             <div className="mt-4">
-              <Button href="mailto:stonesagala@gmail.com" variant="outline">
+              {/* TODO: Replace with Calendly link when ready */}
+              <Button href="https://calendly.com/stonesagala" variant="outline">
                 Schedule a Call
               </Button>
             </div>

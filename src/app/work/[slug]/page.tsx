@@ -40,7 +40,9 @@ export default async function CaseStudyPage({
 
   if (!project) notFound();
 
-  const nextProject = projects[(projectIndex + 1) % projects.length];
+  const completeProjects = projects.filter((p) => p.complete !== false);
+  const completeIndex = completeProjects.findIndex((p) => p.slug === slug);
+  const nextProject = completeProjects[(completeIndex + 1) % completeProjects.length];
 
   return (
     <article style={{ "--accent": project.color, "--accent-hover": project.color } as React.CSSProperties}>
