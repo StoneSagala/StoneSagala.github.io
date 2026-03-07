@@ -155,7 +155,7 @@ export default function ProcessSection({ sections }: { sections: ProjectSection[
                   })}
 
                   {section.image && !section.image2 && (
-                    <div className="mt-8 max-w-xl mx-auto overflow-hidden rounded-xl border border-border">
+                    <div className={`mt-8 overflow-hidden rounded-xl border border-border ${section.imageSize !== "full" ? "max-w-xl mx-auto" : ""}`}>
                       <Lightbox src={section.image} alt={section.title} />
                     </div>
                   )}

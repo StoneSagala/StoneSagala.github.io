@@ -81,17 +81,8 @@ export const projects: Project[] = [
       {
         title: "The #1 most requested feature",
         body: "When admins moved from D&I to Connect, they lost access to their PowerShell scripts. Workflows they had built over years suddenly needed workarounds. The frustration showed up everywhere — support tickets, forums, Discord threads. It was the most requested feature for years.",
-        blocks: [
-          {
-            type: "mosaic",
-            images: [
-              "/images/projects/powershell-scanner-pdq/discord-comment-1.webp",
-              "/images/projects/powershell-scanner-pdq/discord-comment-2.webp",
-              "/images/projects/powershell-scanner-pdq/discord-comment-3.webp",
-              "/images/projects/powershell-scanner-pdq/discord-comment-4.webp",
-            ],
-          },
-        ],
+        image: "/images/projects/powershell-scanner-pdq/discord-comments-composite.webp",
+        imageSize: "full",
       },
       {
         title: "Left behind when we moved to the cloud",
