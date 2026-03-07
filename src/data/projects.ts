@@ -265,10 +265,6 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        title: "How an accessibility audit became an 8-month overhaul",
-        body: "We've all been through work lulls when you're unsure what to do next. During one such lull, my manager suggested I dive into accessibility. What initially started as a learning project eventually evolved into an 8-month revamp of the design system, transforming it into an accessible platform while addressing years of technical debt.",
-      },
-      {
         title: "Developers were playing whack-a-mole",
         body: "Imagine if every time you wanted to change something, on the website, you had to break another part of it. That was the developer's reality every sprint. Because of this, the company went further into technical debt. The backlog was cluttered with bug fixes, innovation was sidelined, and users were frustrated.",
       },
