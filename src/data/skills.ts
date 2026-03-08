@@ -7,9 +7,9 @@ export interface Skill {
 
 export const skills: Skill[] = [
   {
-    title: "Learning",
+    title: "Domain Research",
     description:
-      "Working to better understand customers, features, and the domain will always be part of the job. Doing this quickly is important so you can design the best solutions.",
+      "Working quickly to understand customers, features, and unfamiliar domains is how you design the right thing. Speed to insight matters as much as what you do with it.",
     icon: "book",
     color: "#4F7BF7",
   },

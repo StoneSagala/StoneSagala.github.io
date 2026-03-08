@@ -337,12 +337,16 @@ export default function ProjectThumbnail({ slug, color, image }: { slug: string;
   if (image) {
     return (
       <div className="bento-card__thumbnail" aria-hidden="true">
-        <Image src={image} alt="" width={600} height={400} className="block w-full h-auto" />
+        <Image src={image} alt="" width={600} height={400} priority className="block w-full h-auto" />
       </div>
     );
   }
   const Thumb = THUMBNAILS[slug];
-  if (!Thumb) return null;
+  if (!Thumb) {
+    return (
+      <div className="bento-card__thumbnail" aria-hidden="true" style={{ background: color + '18' }} />
+    );
+  }
   return (
     <div className="bento-card__thumbnail" aria-hidden="true">
       <Thumb color={color} />

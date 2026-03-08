@@ -55,7 +55,7 @@ export const projects: Project[] = [
     timeline: "2024–2025",
     team: "2 designers, 6 engineers, 1 PM",
     tools: [],
-    thumbnail: "/images/projects/grouped-deployments-pdq/thumbnail.webp",
+    thumbnail: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
     color: "#4F7BF7",
     summary:
       "I led the end-to-end redesign of PDQ's PowerShell Scanner, the #1 most requested feature for their cloud platform, Connect. This included designing a guided three-step creation workflow, learning PowerShell myself to understand the experience firsthand, running rapid user testing with the Discord community, and building a script library to lower the barrier for newer admins. By the end, the feature shipped to strong customer reception after years of demand, turning a 12-year-old desktop tool into a structured, cloud-native workflow any admin could use.",
@@ -288,7 +288,7 @@ export const projects: Project[] = [
       },
       {
         title: "What did this mean for the business?",
-        body: "",
+        body: "A fragile frontend had real downstream consequences — not just for the dev team, but for the business.",
         blocks: [
           {
             type: "list",
@@ -367,7 +367,7 @@ export const projects: Project[] = [
       },
       {
         title: "What changed?",
-        body: "",
+        body: "The redesign didn't just fix bugs — it changed how the team worked and what they were able to build.",
         beforeVideo: "/videos/design-system-klas/before.mp4",
         afterVideo: "/videos/design-system-klas/after.mp4",
         blocks: [
@@ -443,9 +443,7 @@ export const projects: Project[] = [
         body: "I've spent a year designing a tournament management platform for combat sports — think Flow Wrestling or Trackwrestling, but built for the modern era. Bracket management, registration, live scoring, athlete profiles. I have the design. Vibe coding is the mechanism I plan to use to bring the full product to life.",
         image: "/images/projects/ai-projects/mat-master.webp",
         imageSize: "full",
-        blocks: [
-          { type: "stat", value: "Years", label: "of projected dev time saved by building with AI" },
-        ],
+        blocks: [],
       },
     ],
   },
@@ -486,7 +484,7 @@ export const projects: Project[] = [
           "Among fighting gyms in Logan, UT & Southern Idaho, driven by targeted local SEO and increased web traffic.",
       },
       {
-        label: "9 to 5 quit",
+        label: "Coach went full-time",
         value: "1",
         description:
           "Full classes and multiple champions; more coaches had to be brought in to accommodate the rise in students.",
@@ -575,7 +573,7 @@ export const projects: Project[] = [
       },
       {
         title: "Marketing plan",
-        body: "I led a small team to create an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
+        body: "As the sole designer, I created an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
         image: "/images/projects/web-design-cvma/social-media-images.webp",
       },
     ],
