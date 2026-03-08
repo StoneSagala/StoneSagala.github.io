@@ -53,14 +53,14 @@ export const projects: Project[] = [
       "Redesigned the PowerShell Scanner for PDQ Connect, solving the accessibility, infrastructure, and data organization challenges that had prevented it from shipping for years.",
     role: "Lead Designer",
     timeline: "2024–2025",
-    team: "2 designers, 6 engineers, 1 PM",
+    team: "2 designers, 1 PM",
     tools: [],
     thumbnail: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
     color: "#4F7BF7",
     summary:
       "I led the end-to-end redesign of PDQ's PowerShell Scanner, the #1 most requested feature for their cloud platform, Connect. This included designing a guided three-step creation workflow, learning PowerShell myself to understand the experience firsthand, running rapid user testing with the Discord community, and building a script library to lower the barrier for newer admins. By the end, the feature shipped to strong customer reception after years of demand, turning a 12-year-old desktop tool into a structured, cloud-native workflow any admin could use.",
     challenge:
-      "PowerShell is the go-to language for managing Windows computers. For over 12 years, IT admins used PDQ's PowerShell Scanner to pull device data (battery health, uptime, software compliance, etc.) and use it to automatically control their environment. When PDQ launched Connect, the scanner didn't come with it. The feature required PowerShell knowledge, could overload servers, and returned data in any format the user chose. We had to solve all three before it could ship.",
+      "PowerShell is the go-to language for managing Windows computers. For over 12 years, IT admins used PDQ's PowerShell Scanner to pull device data (battery health, uptime, software compliance, etc.) and use it to automatically control their environment.When PDQ launched Connect the scanner didn't come with it because it required the user to know PowerShell, the scanner could overload servers, and collected data could be returned in any format. We had to solve all three problems before it could ship.",
     solution:
       "I designed a guided three-step workflow: write your script, test it on a single device, then validate and label your output. That single constraint (test before you deploy) solved all three problems at once. It gave newer admins a safe place to learn, prevented runaway scripts from hitting the whole fleet, and turned unpredictable output into data Connect could actually use.",
     results: [
@@ -101,8 +101,6 @@ export const projects: Project[] = [
       {
         title: "Three problems we had to solve",
         body: "Our first designs looked like a natural evolution of the original. When we tested early, the feedback was consistent: \"This is exactly what we expected.\" But when we brought those designs to engineering, three problems emerged that changed everything.",
-        image: "/images/projects/powershell-scanner-pdq/v1-powershell-page.webp",
-        imageSize: "full",
         blocks: [
           {
             type: "list",
@@ -120,7 +118,7 @@ export const projects: Project[] = [
       },
       {
         title: "I had to become the user",
-        body: "To design for someone who doesn't know PowerShell, I needed to not know it first. So before any mockups, I learned the foundations: how it works, how people use it, and where beginners get stuck. I documented what confused me, what clicked, and where things finally made sense. That turned into a beginner's guide I shared with the team. It shaped every design decision I made after that.",
+        body: "To design for someone who doesn't know PowerShell, I needed to know it first. So before any mockups, I learned the foundations: how it works, how people use it, and where beginners get stuck. I documented what confused me, what clicked, and where things finally made sense. That turned into a beginner's guide I shared with the team. It shaped every design decision I made after that.",
         blocks: [
           {
             type: "expandable",
@@ -176,35 +174,35 @@ export const projects: Project[] = [
       },
       {
         title: "Going straight to the source",
-        body: "I reached out to the same community that had been asking for this feature for years. Within two weeks I scheduled over 7 calls. Since I didn't have prototypes yet, their feedback helped me iterate for the next call. They were the right people to pressure-test it. They knew the old scanner inside and out, and they weren't shy about telling us when something felt off.",
+        body: "I needed user input, so I went straight PDQ's active Discord server to get in touch with users. Within two weeks, I scheduled over seven calls and since I didn't have prototypes yet, their feedback helped me iterate in between sessions. They were the right people to pressure-test it because they knew the old scanner inside and out, and they weren't shy about telling us when something felt off.",
         image: "/images/projects/powershell-scanner-pdq/discord-outreach.webp",
         imageSize: "sm",
       },
       {
         title: "Making PowerShell approachable",
-        body: "A blank code editor is intimidating if you've never written a script before. I built two things into the UI to close that gap.",
-        image: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
+        body: "A blank code editor is intimidating if you've never written a script before, so I built two things into the UI to help close the gap.",
+        image: "/images/projects/powershell-scanner-pdq/v1-powershell-page.webp",
         imageSize: "full",
         blocks: [
           {
             type: "list",
             items: [
-              "Placeholder text inside the editor showing exactly what format the script output needed to be in, so admins had a working example from day one",
-              "A full code editor instead of a plain input field, with syntax highlighting and real-time error feedback so admins could catch mistakes as they typed, not after running on hundreds of devices",
+              "Placeholder text inside the editor showing exactly what format the script output needed to be in, so admins had a working example from day one.",
+              "A full code editor instead of a plain input field, with syntax highlighting and real-time error feedback so admins could catch mistakes as they typed, not after running on hundreds of devices.",
             ],
           },
         ],
       },
       {
         title: "Making sense of infinite output",
-        body: "The original scanner output whatever structure the user gave it, right or wrong. That worked on desktop where admins managed their own data. In Connect, filters and automations need typed, predictable data to function. So after testing on one device, admins assign a data type to each column their script returns: String, Integer, Float, Boolean, Date.\n\nWe were worried users would see this as extra friction. Instead, it became one of the most praised parts of the design, and more than a few people said they wished D&I had it.",
+        body: "The original scanner output the structure the user provided, right or wrong. This was a common complaint for Deploy & Inventory users since they were spending more time trying writing PowerShell, then managing their devices. To solve this, we forced users to test their scanner on one device and assign data types to each column their script returned. We were worried users would be frustrated at the extra steps. Instead, it became one of the most loved parts of the design, and more people said they wished D&I had it.",
         image: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
         image2: "/images/projects/powershell-scanner-pdq/final-draft-modal.webp",
         imageSize: "full",
       },
       {
         title: "Scanners as a fleet superpower",
-        body: "The 3-step workflow solved the system strain problem too. Scripts don't run fleet-wide until the admin confirms the output looks right on one device first, eliminating the risk of a bad script taking down infrastructure for everyone.\n\nOnce validated, scanner data becomes a filter condition and automation trigger across Connect. Check BitLocker status, group every at-risk device, deploy a fix, and automate it going forward. All from one scanner.",
+        body: "The 3-step workflow solved the system strain problem too. Scripts don't run fleet-wide until the admin confirms the output looks right on one device first, eliminating the risk of a bad script overloading servers.\n\nOnce validated, scanner data becomes a filter condition and automation trigger across Connect for each device. For example, check BitLocker status, group every at-risk device, deploy a fix, and automate it going forward. All from one scanner.",
         image: "/images/projects/powershell-scanner-pdq/final-filter-dropdown.webp",
         imageSize: "full",
         blocks: [
@@ -363,7 +361,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "voc-agent",
+    slug: "ai-projects",
     complete: false,
     title: "AI Projects",
     heroTitle: "My Projects",
@@ -374,12 +372,12 @@ export const projects: Project[] = [
     role: "",
     timeline: "",
     team: "",
-    processLabel: { eyebrow: "What I'm Building", heading: "Some of what I'm building" },
+    processLabel: { eyebrow: "What I'm Building", heading: "My Projects" },
     tools: [],
     thumbnail: "/images/projects/ai-projects/thumbnail.webp",
     color: "#A855F7",
     challenge:
-      "Good AI ideas are everywhere. The harder problem is building AI tools that actually change how work gets done — tools reliable enough to trust, specific enough to be useful, and simple enough that people actually use them.",
+      "AI ideas are everywhere. The problem is building AI tools that actually change how work gets done — tools reliable enough to trust, specific enough to be useful, and simple enough that people actually use them.",
     solution:
       "I've been building AI tools at PDQ and on my own time: automations that process real data at scale, GPTs trained on competitive intelligence, and a growing system for using AI agents to accelerate product development itself.",
     results: [
@@ -391,7 +389,7 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        title: "Voice of the Customer, at scale",
+        title: "Voice of the Customer",
         body: "PDQ collects customer feedback across call transcripts, help desk tickets, NPS surveys, and more — but that data was scattered, inconsistent, and too noisy to act on at scale. I built an AI agent that automatically ingests all of it, filters out noise, extracts valid feedback, and categorizes it by theme and product area. The next step is surfacing that as a living knowledge base any employee can tap into for research or roadmap planning, without reading a single raw ticket.",
         image: "/images/projects/ai-projects/voc-evaluation.webp",
         imageSize: "full",

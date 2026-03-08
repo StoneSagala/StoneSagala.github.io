@@ -9,7 +9,7 @@ export const skills: Skill[] = [
   {
     title: "Domain Research",
     description:
-      "Designing the right thing starts with understanding the domain. I learn fast — whether that means studying PowerShell, accessibility standards, or how IT admins manage 5,000 devices.",
+      "Learning new things is part of the job. That can mean studying technical skills, industry jargon, or user workflows, the faster you learn the faster you can build.",
     icon: "book",
     color: "#4F7BF7",
   },
@@ -23,7 +23,7 @@ export const skills: Skill[] = [
   {
     title: "Information Architecture",
     description:
-      "Critical. Since most designs are over 50% text, structuring complex systems and information-dense applications is how you make products that actually work.",
+      "Structuring complex systems and information-dense applications is how you make products that actually work. Especially, since most designs are over 50% text, ",
     icon: "tree",
     color: "#10B981",
   },
