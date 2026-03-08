@@ -59,7 +59,7 @@ export default function TestimonialSlider() {
               animate={{ opacity: i === current ? 1 : 0 }}
               transition={{ duration: 0.4 }}
               aria-hidden={i !== current}
-              {...(i !== current ? { inert: "" as unknown as boolean } : {})}
+              {...(i !== current ? { inert: true } : {})}
               className="col-start-1 row-start-1 max-w-2xl"
               style={{ pointerEvents: i === current ? "auto" : "none" }}
             >
