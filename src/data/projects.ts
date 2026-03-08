@@ -65,14 +65,14 @@ export const projects: Project[] = [
       "I designed a guided three-step workflow: write your script, test it on a single device, then validate and label your output. That single constraint (test before you deploy) solved all three problems at once. It gave newer admins a safe place to learn, prevented runaway scripts from hitting the whole fleet, and turned unpredictable output into data Connect could actually use.",
     results: [
       {
-        label: "Figma versions",
-        value: "5+",
-        description: "Iterated from a blank code editor to a guided 3-step creation flow through continuous grooming and stakeholder review.",
+        label: "most requested feature",
+        value: "#1",
+        description: "Delivered after years of demand from users who had relied on it in D&I and lost it when moving to Connect.",
       },
       {
-        label: "problems solved, one workflow",
-        value: "3",
-        description: "Approachability, system strain, and output organization, all addressed through the test-first creation flow.",
+        label: "possible configurations",
+        value: "∞",
+        description: "Any PowerShell script an admin can write becomes a scanner — no limits on what data they can pull from their fleet.",
       },
     ],
     sections: [
