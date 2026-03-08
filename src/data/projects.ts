@@ -72,7 +72,7 @@ export const projects: Project[] = [
       {
         label: "week design turnaround",
         value: "2",
-        description: "Solved three blocking engineering problems and delivered a validated design in two weeks before engineering started building.",
+        description: "Solved three problems blocking engineering and delivered a validated design in two weeks.",
       },
     ],
     sections: [
@@ -188,21 +188,21 @@ export const projects: Project[] = [
             type: "list",
             items: [
               "Placeholder text inside the editor showing exactly what format the script output needed to be in, so admins had a working example from day one.",
-              "A full code editor instead of a plain input field, with syntax highlighting and real-time error feedback so admins could catch mistakes as they typed, not after running on hundreds of devices.",
+              "A full code editor instead of a plain input field, with syntax highlighting and real-time error feedback so admins could catch mistakes as they typed, not after testing it on hundreds of devices.",
             ],
           },
         ],
       },
       {
         title: "Making sense of infinite output",
-        body: "The original scanner output the structure the user provided, right or wrong. This was a common complaint for Deploy & Inventory users since they were spending more time trying writing PowerShell, then managing their devices. To solve this, we forced users to test their scanner on one device and assign data types to each column their script returned. We were worried users would be frustrated at the extra steps. Instead, it became one of the most loved parts of the design, and more people said they wished D&I had it.",
+        body: "The original scanner output exactly what the user wrote, right or wrong. This was a common complaint since users were spending more time troubleshooting script than managing their devices. To solve this, we forced users to test their scanner on one device and assign data types to each column their script returned. We were worried users would be frustrated at the extra steps, but it became one of the most loved parts of the design, and people said they wished the original scanner had it.",
         image: "/images/projects/powershell-scanner-pdq/final-powershell-page.webp",
         image2: "/images/projects/powershell-scanner-pdq/final-draft-modal.webp",
         imageSize: "full",
       },
       {
         title: "Scanners as a fleet superpower",
-        body: "The 3-step workflow solved the system strain problem too. Scripts don't run fleet-wide until the admin confirms the output looks right on one device first, eliminating the risk of a bad script overloading servers.\n\nOnce validated, scanner data becomes a filter condition and automation trigger across Connect for each device. For example, check BitLocker status, group every at-risk device, deploy a fix, and automate it going forward. All from one scanner.",
+        body: "The 3-step workflow solved the system strain problem too. Scripts don't run on all devices until the user validates the output, which eliminates the risk of a bad script overloading servers. Once validated, scanner data becomes a filter condition for devices and can trigger automations across Connect. For example: check BitLocker status -> group every at-risk device -> deploy a fix -> automate it going forward.",
         image: "/images/projects/powershell-scanner-pdq/final-filter-dropdown.webp",
         imageSize: "full",
         blocks: [
