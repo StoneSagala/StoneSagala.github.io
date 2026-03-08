@@ -70,9 +70,9 @@ export const projects: Project[] = [
         description: "Delivered after years of demand from users who had relied on it in D&I and lost it when moving to Connect.",
       },
       {
-        label: "year-old tool brought to the cloud",
-        value: "12",
-        description: "A desktop scanner admins had relied on for over a decade, redesigned as a structured cloud-native workflow.",
+        label: "week design turnaround",
+        value: "2",
+        description: "Solved three blocking engineering problems and delivered a validated design in two weeks before engineering started building.",
       },
     ],
     sections: [
