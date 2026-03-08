@@ -40,7 +40,7 @@ export default function CaseStudyCard({ project }: { project: Project }) {
           </h3>
           <p className="mt-2 text-text-secondary">{project.subtitle}</p>
           {/* Metrics */}
-          <div className="mt-6 flex flex-wrap gap-6">
+          <div className="mt-6 flex flex-col gap-3">
             {project.results.slice(0, 3).map((result) => (
               <div key={result.label}>
                 <p className="text-lg font-bold" style={{ color: project.color }}>
