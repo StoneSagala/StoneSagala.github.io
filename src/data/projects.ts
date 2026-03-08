@@ -65,11 +65,6 @@ export const projects: Project[] = [
       "I designed a guided three-step workflow: write your script, test it on a single device, then validate and label your output. That single constraint (test before you deploy) solved all three problems at once. It gave newer admins a safe place to learn, prevented runaway scripts from hitting the whole fleet, and turned unpredictable output into data Connect could actually use.",
     results: [
       {
-        label: "most requested feature",
-        value: "#1",
-        description: "Delivered after years of demand from users who had relied on it in D&I and lost it when moving to Connect.",
-      },
-      {
         label: "Figma versions",
         value: "5+",
         description: "Iterated from a blank code editor to a guided 3-step creation flow through continuous grooming and stakeholder review.",
@@ -262,12 +257,6 @@ export const projects: Project[] = [
         description:
           "Every component rebuilt to meet accessibility standards, reducing legal liability and improving usability across the platform.",
       },
-      {
-        label: "month solo project",
-        value: "8",
-        description:
-          "Delivered end-to-end: audit, learning, component redesign, token architecture, and cross-team documentation.",
-      },
     ],
     sections: [
       {
@@ -395,8 +384,8 @@ export const projects: Project[] = [
       "I've been building AI tools at PDQ and on my own time: automations that process real data at scale, GPTs trained on competitive intelligence, and a growing system for using AI agents to accelerate product development itself.",
     results: [
       {
-        label: "estimated time saved per quarter across all tools",
-        value: "7+ weeks",
+        label: "weeks saved every quarter",
+        value: "7+",
         description: "6 weeks from automating feedback processing with the VoC agent, plus 1 week from on-demand competitive research.",
       },
     ],
