@@ -5,12 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileMenu from "./MobileMenu";
-
-const navLinks = [
-  { href: "/#work", label: "Work", external: false, download: false },
-  { href: "/resume.pdf", label: "Resume", external: true, download: true },
-  { href: "/#contact", label: "Contact", external: false, download: false },
-];
+import { navLinks } from "@/data/navigation";
 
 export default function Header() {
   const pathname = usePathname();
@@ -50,6 +45,7 @@ export default function Header() {
                   href={link.href}
                   aria-current={pathname === link.href ? "page" : undefined}
                   {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...(link.download ? { download: true } : {})}
                   className="text-sm text-text-secondary transition-colors hover:text-text-primary"
                 >
                   {link.label}

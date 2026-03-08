@@ -85,17 +85,7 @@ export const projects: Project[] = [
         title: "The #1 most requested feature",
         body: "When admins moved from D&I to Connect, they lost access to their PowerShell scripts. Workflows they had built over years suddenly needed workarounds. The frustration showed up everywhere: support tickets, forums, Discord threads. It was the most requested feature for years.",
         image: "/images/projects/powershell-scanner-pdq/discord-comments-composite.webp",
-        imageSize: "full",
-        blocks: [
-          {
-            type: "gallery",
-            columns: 2,
-            images: [
-              "/images/projects/powershell-scanner-pdq/discord-comment-1.webp",
-              "/images/projects/powershell-scanner-pdq/discord-comment-4.webp",
-            ],
-          },
-        ],
+        imageSize: "medium",
       },
       {
         title: "Left behind when we moved to the cloud",
@@ -193,7 +183,6 @@ export const projects: Project[] = [
         title: "Going straight to the source",
         body: "I reached out to the same community that had been asking for this feature for years. Within two weeks I scheduled over 7 calls. Since I didn't have prototypes yet, their feedback helped me iterate for the next call. They were the right people to pressure-test it. They knew the old scanner inside and out, and they weren't shy about telling us when something felt off.",
         image: "/images/projects/powershell-scanner-pdq/discord-outreach.webp",
-        image2: "/images/projects/powershell-scanner-pdq/discord-comment-3.webp",
         imageSize: "sm",
       },
       {
@@ -222,8 +211,7 @@ export const projects: Project[] = [
         title: "Scanners as a fleet superpower",
         body: "The 3-step workflow solved the system strain problem too. Scripts don't run fleet-wide until the admin confirms the output looks right on one device first, eliminating the risk of a bad script taking down infrastructure for everyone.\n\nOnce validated, scanner data becomes a filter condition and automation trigger across Connect. Check BitLocker status, group every at-risk device, deploy a fix, and automate it going forward. All from one scanner.",
         image: "/images/projects/powershell-scanner-pdq/final-filter-dropdown.webp",
-        image2: "/images/projects/powershell-scanner-pdq/discord-comment-2.webp",
-        imageSize: "sm",
+        imageSize: "full",
         blocks: [
           {
             type: "link",
@@ -320,6 +308,7 @@ export const projects: Project[] = [
         title: "The best lessons are the ones you teach yourself",
         body: "The results of my audits made one thing clear: I needed to become an expert in accessibility before making any major changes. I read books, took courses, and studied WCAG standards. By the end of my self-directed boot camp, I was recognized as an accessibility expert by UXCEL, scoring in the top 10%.",
         image: "/images/projects/design-system-klas/accessibility-certificate.webp",
+        imageSize: "medium",
       },
       {
         title: "Re-designing the components",
@@ -331,7 +320,7 @@ export const projects: Project[] = [
         body: "Users were frustrated because data visualizations had too many colors and data points, making them hard to read. Best practice calls for no more than 6 data points on a graph, but KLAS frequently had up to 12. I collaborated with multiple teams to build a color palette that was:",
         image: "/images/projects/design-system-klas/data-viz-colors.webp",
         image2: "/images/projects/design-system-klas/chart-types.webp",
-        imageSize: "sm",
+        imageSize: "medium",
         blocks: [
           {
             type: "list",
@@ -353,6 +342,7 @@ export const projects: Project[] = [
         title: "Documentation and implementation",
         body: "All this work would mean nothing without documentation. I created documentation for every component and color, covering:",
         image: "/images/projects/design-system-klas/documentation-intro.webp",
+        imageSize: "sm",
         blocks: [
           {
             type: "list",
@@ -495,11 +485,13 @@ export const projects: Project[] = [
         title: "Undiscovered",
         body: "CVMA is full of some of the best coaches Utah has to offer. World team members, Gold Glove winners, and black belts could be found on their staff. CVMA wanted to take the next step to increase its customer base and grow its semi-pro fighting team.",
         image: "/images/projects/web-design-cvma/gym-wall-punching-bag.webp",
+        imageSize: "sm",
       },
       {
         title: "A local gym with world level talent",
         body: "Have you ever been secretly good at something and it was fun to keep it on the down low? Well, CVMA was great at what they did and was tired of being kept secret. The problem was that CVMA is in Logan, UT, a city usually flooded with seasonal, broke college students. CVMA needed to switch its brand and marketing strategy to attract its real target audience: students and families.",
         image: "/images/projects/web-design-cvma/gym-winning-medal.webp",
+        imageSize: "sm",
         blocks: [
           {
             type: "list",
@@ -512,7 +504,7 @@ export const projects: Project[] = [
       },
       {
         title: "What does this mean for the business?",
-        body: "",
+        body: "The research made the stakes clear. CVMA wasn't just competing for members — it was competing against a deeply held stigma. Three things had to be true for the business to grow:",
         blocks: [
           {
             type: "list",
@@ -575,6 +567,7 @@ export const projects: Project[] = [
         title: "Marketing plan",
         body: "As the sole designer, I created an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
         image: "/images/projects/web-design-cvma/social-media-images.webp",
+        imageSize: "medium",
       },
     ],
   },

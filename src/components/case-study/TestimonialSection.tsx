@@ -13,7 +13,7 @@ export default function TestimonialSection({
       <Container>
         <ScrollReveal>
           <div className="max-w-3xl">
-            <span className="font-display text-6xl leading-none text-accent" aria-hidden="true">
+            <span className="font-sans text-6xl leading-none text-accent" aria-hidden="true">
               &ldquo;
             </span>
             <p className="mt-2 text-2xl font-semibold leading-snug text-text-primary md:text-3xl">

@@ -20,7 +20,7 @@ export default function StatementSection() {
             threshold={0.1}
             rootMargin="-60px"
             textAlign="left"
-            className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl"
+            className="font-sans text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl"
           />
           <SplitText
             text="Because users didn't sign up for a learning curve. "
@@ -34,7 +34,7 @@ export default function StatementSection() {
             threshold={0.1}
             rootMargin="-60px"
             textAlign="left"
-            className="font-display text-4xl font-bold leading-tight tracking-tight text-accent md:text-6xl"
+            className="font-sans text-4xl font-bold leading-tight tracking-tight text-accent md:text-6xl"
           />
         </h2>
       </Container>

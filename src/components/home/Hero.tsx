@@ -71,7 +71,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl md:leading-tight"
+            className="font-sans text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl md:leading-tight"
             aria-label="Let's turn complex products into intuitive, scalable, accessible, and impactful digital experiences."
           >
             <span className="block">

@@ -3,15 +3,23 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
-const navLinks = [
-  { href: "/#work", label: "Work", external: false },
-  { href: "/resume.pdf", label: "Resume", external: true },
-  { href: "/#contact", label: "Contact", external: false },
-];
+import { navLinks } from "@/data/navigation";
 
 export default function MobileMenu({ onClose }: { onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const focusableRef = useRef<HTMLElement[]>([]);
+
+  // Cache focusable elements once after mount
+  useEffect(() => {
+    if (menuRef.current) {
+      focusableRef.current = Array.from(
+        menuRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button, [tabindex]:not([tabindex="-1"])'
+        )
+      );
+    }
+  }, []);
 
   useEffect(() => {
     closeRef.current?.focus();
@@ -20,11 +28,8 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
       if (e.key === "Escape") onClose();
 
       if (e.key === "Tab") {
-        const menu = document.querySelector('[role="dialog"]');
-        if (!menu) return;
-        const focusable = menu.querySelectorAll<HTMLElement>(
-          'a[href], button, [tabindex]:not([tabindex="-1"])'
-        );
+        const focusable = focusableRef.current;
+        if (!focusable.length) return;
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
 
@@ -53,6 +58,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      ref={menuRef}
       className="fixed inset-0 z-50 bg-bg-primary"
       role="dialog"
       aria-modal="true"
@@ -72,6 +78,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            aria-hidden="true"
           >
             <line x1="4" y1="4" x2="16" y2="16" />
             <line x1="16" y1="4" x2="4" y2="16" />
@@ -91,6 +98,7 @@ export default function MobileMenu({ onClose }: { onClose: () => void }) {
               href={link.href}
               onClick={onClose}
               {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              {...(link.download ? { download: true } : {})}
               className="text-3xl font-medium text-text-primary"
             >
               {link.label}

@@ -6,7 +6,7 @@ import Lightbox from "@/components/ui/Lightbox";
 import BeforeAfterToggle from "@/components/ui/BeforeAfterToggle";
 import type { ProjectSection } from "@/data/projects";
 
-export default function ProcessSection({ sections, label }: { sections: ProjectSection[]; label?: { eyebrow: string; heading: string } }) {
+export default function ProcessSection({ sections, label, alternatingLayout }: { sections: ProjectSection[]; label?: { eyebrow: string; heading: string }; alternatingLayout?: boolean }) {
   return (
     <section className="border-t border-border py-16 md:py-24">
       <Container>
@@ -20,11 +20,12 @@ export default function ProcessSection({ sections, label }: { sections: ProjectS
         <div className="mt-12 space-y-16">
           {sections.map((section, i) => {
             const hasSingleImage = !!(section.image && !section.image2);
+            const useSideLayout = alternatingLayout && hasSingleImage;
             const isReversed = i % 2 === 1;
             return (
             <ScrollReveal key={section.title} delay={i * 0.08}>
-              <div className={hasSingleImage ? `flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 md:items-center` : ``}>
-                <div className={hasSingleImage && isReversed ? "md:order-2" : ""}>
+              <div className={useSideLayout ? `flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 md:items-center` : ``}>
+                <div className={useSideLayout && isReversed ? "md:order-2" : ""}>
                   <h3 className="text-xl font-semibold text-text-primary">
                     {section.title}
                   </h3>
@@ -192,8 +193,13 @@ export default function ProcessSection({ sections, label }: { sections: ProjectS
                   )}
                 </div>
 
-                {hasSingleImage && (
+                {useSideLayout && (
                   <div className={`overflow-hidden rounded-xl ${isReversed ? "md:order-1" : ""}`}>
+                    <Lightbox src={section.image!} alt={section.title} />
+                  </div>
+                )}
+                {hasSingleImage && !alternatingLayout && (
+                  <div className={`mt-8 overflow-hidden rounded-xl ${section.imageSize === "sm" ? "max-w-lg mx-auto" : section.imageSize === "medium" ? "max-w-3xl mx-auto" : ""}`}>
                     <Lightbox src={section.image!} alt={section.title} />
                   </div>
                 )}

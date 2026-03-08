@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Container from "@/components/ui/Container";
 import type { Project } from "@/data/projects";
 
@@ -50,6 +49,7 @@ export default function CaseStudyHero({ project }: { project: Project }) {
             </div>
           </motion.div>
         )}
+
       </Container>
     </section>
   );

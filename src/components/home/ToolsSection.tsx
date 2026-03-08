@@ -14,6 +14,7 @@ import {
   siMixpanel, siGoogleanalytics, siNotion, siJira, siConfluence,
   siLinear, siLoom, siWordpress, siClaude, siN8n, siQualtrics,
 } from "simple-icons";
+import { hexToRgb } from '@/lib/colorUtils';
 
 const iconPaths: Record<string, string> = {
   siFigma:            siFigma.path,
@@ -32,13 +33,6 @@ const iconPaths: Record<string, string> = {
   siN8n:              siN8n.path,
   siQualtrics:        siQualtrics.path,
 };
-
-function hexToRgb(hex: string): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `${r}, ${g}, ${b}`;
-}
 
 function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
   const svgProps = {
