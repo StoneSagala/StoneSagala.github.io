@@ -462,12 +462,6 @@ export const projects: Project[] = [
         description:
           "Among fighting gyms in Logan, UT & Southern Idaho, driven by targeted local SEO and increased web traffic.",
       },
-      {
-        label: "Coach went full-time",
-        value: "1",
-        description:
-          "Full classes and multiple champions; more coaches had to be brought in to accommodate the rise in students.",
-      },
     ],
     sections: [
       {
