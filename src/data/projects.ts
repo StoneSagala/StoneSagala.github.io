@@ -70,9 +70,9 @@ export const projects: Project[] = [
         description: "Delivered after years of demand from users who had relied on it in D&I and lost it when moving to Connect.",
       },
       {
-        label: "possible configurations",
-        value: "∞",
-        description: "Any PowerShell script an admin can write becomes a scanner — no limits on what data they can pull from their fleet.",
+        label: "year-old tool brought to the cloud",
+        value: "12",
+        description: "A desktop scanner admins had relied on for over a decade, redesigned as a structured cloud-native workflow.",
       },
     ],
     sections: [
