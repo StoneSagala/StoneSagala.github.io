@@ -38,6 +38,7 @@ export default function Button({
           : {})}
       >
         {children}
+        {isExternal && <span className="sr-only">(opens in new tab)</span>}
       </Link>
     );
   }

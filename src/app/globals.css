@@ -10,7 +10,7 @@
   /* Text hierarchy */
   --text-primary: #F2F2F2;
   --text-secondary: #A3A3AA;
-  --text-tertiary: #64646E;
+  --text-tertiary: #8A8A94;
 
   /* Accent - warm amber */
   --accent: #FF9933;
@@ -347,6 +347,15 @@ html {
   mask-composite: exclude;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Fallback: ensure content is visible when JS is unavailable */
+@media (scripting: none) {
+  .split-parent,
+  [style*="opacity: 0"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

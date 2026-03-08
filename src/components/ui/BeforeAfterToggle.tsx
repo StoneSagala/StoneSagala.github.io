@@ -45,6 +45,7 @@ export default function BeforeAfterToggle({
         <div className="mb-3 inline-flex rounded-full border border-border bg-bg-secondary p-1">
           <button
             onClick={() => switchView("before")}
+            aria-pressed={view === "before"}
             className={`rounded-full px-5 py-1.5 font-mono text-sm transition-colors ${
               view === "before" ? "bg-accent text-bg-primary" : "text-text-secondary hover:text-text-primary"
             }`}
@@ -53,6 +54,7 @@ export default function BeforeAfterToggle({
           </button>
           <button
             onClick={() => switchView("after")}
+            aria-pressed={view === "after"}
             className={`rounded-full px-5 py-1.5 font-mono text-sm transition-colors ${
               view === "after" ? "bg-accent text-bg-primary" : "text-text-secondary hover:text-text-primary"
             }`}

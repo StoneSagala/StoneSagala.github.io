@@ -52,13 +52,14 @@ export default function TestimonialSlider() {
         </ScrollReveal>
 
         {/* Grid-stack: all testimonials occupy the same cell so the tallest sets the height */}
-        <div className="mt-12 grid">
+        <div className="mt-12 grid" aria-live="polite" aria-atomic="true">
           {testimonials.map((t, i) => (
             <motion.blockquote
               key={i}
               animate={{ opacity: i === current ? 1 : 0 }}
               transition={{ duration: 0.4 }}
               aria-hidden={i !== current}
+              {...(i !== current ? { inert: "" as unknown as boolean } : {})}
               className="col-start-1 row-start-1 max-w-2xl"
               style={{ pointerEvents: i === current ? "auto" : "none" }}
             >

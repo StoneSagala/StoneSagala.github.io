@@ -71,7 +71,7 @@ export default function ContactPage() {
                       {method.description}
                     </p>
                   </div>
-                  <span className="text-text-tertiary transition-colors group-hover:text-accent">
+                  <span className="text-text-tertiary transition-colors group-hover:text-accent" aria-hidden="true">
                     &rarr;
                   </span>
                 </div>

@@ -7,10 +7,10 @@ export default function StatementSection() {
   return (
     <section className="border-t border-border py-24 md:py-32">
       <Container>
-        <div className="max-w-4xl">
+        <h2 className="max-w-4xl" aria-label="My job is to make products feel simple. Because users didn't sign up for a learning curve.">
           <SplitText
             text="My job is to make products feel simple."
-            tag="h2"
+            tag="span"
             splitType="words"
             delay={60}
             duration={0.9}
@@ -24,7 +24,7 @@ export default function StatementSection() {
           />
           <SplitText
             text="Because users didn't sign up for a learning curve. "
-            tag="h2"
+            tag="span"
             splitType="words"
             delay={60}
             duration={0.9}
@@ -36,7 +36,7 @@ export default function StatementSection() {
             textAlign="left"
             className="font-display text-4xl font-bold leading-tight tracking-tight text-accent md:text-6xl"
           />
-        </div>
+        </h2>
       </Container>
     </section>
   );

@@ -200,7 +200,7 @@ export default function ToolsSection() {
                   onClick={() => setActive(cat)}
                   aria-pressed={isActive}
                   aria-label={`${label}, ${count} item${count !== 1 ? "s" : ""}`}
-                  className={`rounded-lg px-4 py-1.5 font-mono text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent ${
+                  className={`rounded-lg px-4 py-1.5 font-mono text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary focus-visible:ring-accent ${
                     isActive ? "" : "border border-border text-text-secondary hover:border-border-hover hover:text-text-primary"
                   }`}
                   style={isActive ? { backgroundColor: color ?? "var(--color-accent)", color: "var(--color-bg-primary)" } : undefined}

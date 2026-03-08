@@ -7,9 +7,9 @@ import { usePathname } from "next/navigation";
 import MobileMenu from "./MobileMenu";
 
 const navLinks = [
-  { href: "/#work", label: "Work", external: false },
-  { href: "/resume.pdf", label: "Resume", external: true },
-  { href: "/#contact", label: "Contact", external: false },
+  { href: "/#work", label: "Work", external: false, download: false },
+  { href: "/resume.pdf", label: "Resume", external: true, download: true },
+  { href: "/#contact", label: "Contact", external: false, download: false },
 ];
 
 export default function Header() {
@@ -35,7 +35,7 @@ export default function Header() {
             : "bg-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+        <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link
             href="/"
             className="font-mono text-sm font-medium tracking-wider text-text-primary uppercase"
@@ -48,6 +48,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={pathname === link.href ? "page" : undefined}
                   {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="text-sm text-text-secondary transition-colors hover:text-text-primary"
                 >

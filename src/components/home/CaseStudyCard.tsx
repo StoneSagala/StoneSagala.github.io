@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 
@@ -17,18 +18,13 @@ export default function CaseStudyCard({ project }: { project: Project }) {
           className="relative aspect-[16/10] overflow-hidden"
           style={{ backgroundColor: project.color + "12" }}
         >
-          {/* Placeholder — replace with next/image when screenshots are ready */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-3 opacity-20">
-              <div
-                className="h-16 w-16 rounded-2xl"
-                style={{ backgroundColor: project.color }}
-              />
-              <div className="h-2.5 w-28 rounded-full" style={{ backgroundColor: project.color }} />
-              <div className="h-2.5 w-20 rounded-full" style={{ backgroundColor: project.color }} />
-            </div>
-          </div>
-
+          <Image
+            src={project.thumbnail}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
 
         {/* Content */}
