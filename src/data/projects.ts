@@ -408,7 +408,7 @@ export const projects: Project[] = [
       },
       {
         title: "Vibe coding a proof of concept at PDQ",
-        body: "I wanted to know if vibe coding could produce something real — not a toy, but a working proof of concept worth showing. The result: a managed software center that installs software on a device, scans to confirm it's there, and logs each deployment stage in a working mockup of PDQ Connect. It ran in a local environment, but the loop was complete: deploy, verify, report. The next step is connecting it to an AI agent that can make deployment decisions autonomously.",
+        body: "I wanted to know if vibe coding could produce something technical, something to give our engineers a head start. The result: a managed software center that installs software on a device, scans to confirm it's there, and logs each deployment stage in a working mockup of PDQ Connect. It ran in a local environment, but the loop was complete: deploy, verify, report.",
         image: "/images/projects/ai-projects/managed-software-center.webp",
         imageSize: "full",
         blocks: [
@@ -416,8 +416,8 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "After that: a tournament platform I've been building for a year",
-        body: "I've spent a year designing a tournament management platform for combat sports — think Flow Wrestling or Trackwrestling, but built for the modern era. Bracket management, registration, live scoring, athlete profiles. I have the design. Vibe coding is the mechanism I plan to use to bring the full product to life.",
+        title: "Up next: MatMaster",
+        body: "I've spent a year designing a tournament management platform for wrestling. Bracket management, registration, live scoring, athlete profiles. I have the design. Vibe coding is the mechanism I plan to use to bring the full product to life.",
         image: "/images/projects/ai-projects/mat-master.webp",
         imageSize: "full",
         blocks: [],
