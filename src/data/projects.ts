@@ -18,6 +18,7 @@ export interface ProjectSection {
   beforeVideo?: string;
   afterVideo?: string;
   blocks?: ProcessBlock[];
+  blocksBeforeImage?: boolean;
 }
 
 export interface Project {
@@ -263,14 +264,14 @@ export const projects: Project[] = [
       },
       {
         title: "What did this mean for the business?",
-        body: "A fragile frontend had real downstream consequences — not just for the dev team, but for the business.",
+        body: "A fragile frontend had real downstream consequences, not just for the dev team, but for the business.",
         blocks: [
           {
             type: "list",
             items: [
-              "KLAS users were making 10+ million dollar decisions on the platform. An inaccessible experience created real legal liability.",
+              "KLAS users were using our platform to help make million dollar decisions. An inaccessible experience created real legal liability.",
               "Developers were working overtime every sprint, as bug fixes kept getting prioritized over new features.",
-              "Clients bypassed the website entirely and called managers directly, creating bottlenecks and straining client relationships.",
+              "Clients bypassed the website entirely and called managers directly, creating bottlenecks and burning out our employees.",
             ],
           },
         ],
@@ -308,6 +309,7 @@ export const projects: Project[] = [
         image: "/images/projects/design-system-klas/data-viz-colors.webp",
         image2: "/images/projects/design-system-klas/chart-types.webp",
         imageSize: "medium",
+        blocksBeforeImage: true,
         blocks: [
           {
             type: "list",
@@ -546,9 +548,13 @@ export const projects: Project[] = [
       },
       {
         title: "Marketing plan",
-        body: "As the sole designer, I created an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
+        body: "I created an in-depth marketing plan for CVMA. Equipped with a new website, brand, and SEO, a marketing plan was the last thing CVMA needed to succeed. This plan included an estimated budget, measurements of success, examples, and clear instructions on the type of content needed to attract their target audience.",
         image: "/images/projects/web-design-cvma/social-media-images.webp",
         imageSize: "medium",
+      },
+      {
+        title: "Where they ended up",
+        body: "Cache Valley Martial Arts is now one of the top MMA gyms in the state. With full classes and multiple amateur belt holders, they are now being recognized for their hard work and expertise as a go-to gym to train.",
       },
     ],
   },
