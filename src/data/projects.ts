@@ -68,7 +68,7 @@ export const projects: Project[] = [
     results: [
       {
         label: "admins building custom scanners",
-        value: "1,700+",
+        value: "1,700",
         description: "Users who had experience with D&I started building right away. The average admin created 6 scanners.",
       },
       {
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       },
       {
         label: "scanner runs since launch",
-        value: "41K+",
+        value: "41K",
         description: "1,991 admins running their scanners continuously to collect data from their fleets.",
       },
     ],
