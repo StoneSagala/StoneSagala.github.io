@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stonesagala.com/sitemap.xml
+Sitemap: https://stonesagala.github.io/sitemap.xml

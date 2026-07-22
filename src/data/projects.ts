@@ -5,7 +5,8 @@ export type ProcessBlock =
   | { type: "link"; text: string; url: string }
   | { type: "expandable"; label: string; sections: { heading: string; items: string[] }[] }
   | { type: "mosaic"; images: string[] }
-  | { type: "gallery"; images: string[]; columns?: 2 | 3 | 4 }
+  | { type: "gallery"; images: string[]; columns?: 1 | 2 | 3 | 4 }
+  | { type: "bento"; images: { src: string; span?: "full" | "half" }[] }
   | { type: "stat"; value: string; label: string };
 
 export interface ProjectSection {
@@ -66,14 +67,19 @@ export const projects: Project[] = [
       "I designed a guided three-step workflow: write your script, test it on a single device, then validate and label your output. That single constraint (test before you deploy) solved all three problems at once. It gave newer admins a safe place to learn, prevented runaway scripts from hitting the whole fleet, and turned unpredictable output into data Connect could actually use.",
     results: [
       {
-        label: "most requested feature",
-        value: "#1",
-        description: "Delivered after years of demand from users who had relied on it in D&I and lost it when moving to Connect.",
+        label: "admins building custom scanners",
+        value: "1,700+",
+        description: "Users who had experience with D&I started building right away. The average admin created 6 scanners.",
       },
       {
         label: "week design turnaround",
         value: "2",
         description: "Solved three problems blocking engineering and delivered a validated design in two weeks.",
+      },
+      {
+        label: "scanner runs since launch",
+        value: "41K+",
+        description: "1,991 admins running their scanners continuously to collect data from their fleets.",
       },
     ],
     sections: [
@@ -211,6 +217,23 @@ export const projects: Project[] = [
             type: "link",
             text: "Try the Figma prototype",
             url: "https://www.figma.com/proto/PZrWAa8lOebnSHZRkaRUVw/Prototypes?page-id=0%3A1&node-id=172-47158&p=f&viewport=80%2C364%2C0.08&t=5bhOSKUzukzWI5W3-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=172%3A47158",
+          },
+        ],
+      },
+      {
+        title: "Shipped to the community it was built for",
+        body: "The scanner launched in April 2026 and the PDQ Discord lit up immediately. Admins who had been waiting since the D&I days weren't just celebrating. They were working. Users were sharing scripts, helping each other troubleshoot, and asking what others were building. Thousands of scanners were created in the first few weeks. One admin stayed up until 1AM to finish theirs. Another had six running by the end of the week.",
+        blocks: [
+          {
+            type: "gallery",
+            columns: 1,
+            images: [
+              "/images/projects/powershell-scanner-pdq/feedback-1.webp",
+              "/images/projects/powershell-scanner-pdq/feedback-2.webp",
+              "/images/projects/powershell-scanner-pdq/feedback-3.webp",
+              "/images/projects/powershell-scanner-pdq/feedback-6.webp",
+              "/images/projects/powershell-scanner-pdq/feedback-7.webp",
+            ],
           },
         ],
       },

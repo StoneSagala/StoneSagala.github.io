@@ -76,11 +76,11 @@ function renderBlock(block: ProcessBlock, bi: number) {
 
   if (block.type === "gallery") {
     const colCount = block.columns ?? (block.images.length <= 2 ? 2 : block.images.length === 3 ? 3 : 4);
-    const colClass = colCount === 2 ? "sm:grid-cols-2" : colCount === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4";
+    const colClass = colCount === 1 ? "grid-cols-1" : colCount === 2 ? "sm:grid-cols-2" : colCount === 3 ? "sm:grid-cols-3" : "sm:grid-cols-4";
     return (
-      <div key={bi} className={`mt-8 grid gap-3 grid-cols-2 ${colClass}`}>
+      <div key={bi} className={`mt-8 grid gap-3 ${colClass}`}>
         {block.images.map((src, ii) => (
-          <div key={ii} className="aspect-[4/3] overflow-hidden rounded-xl [&_img]:h-full [&_img]:w-full [&_img]:object-cover">
+          <div key={ii} className="overflow-hidden rounded-xl">
             <Lightbox src={src} alt="" />
           </div>
         ))}
@@ -104,6 +104,18 @@ function renderBlock(block: ProcessBlock, bi: number) {
             style={cardStyles[ii % cardStyles.length]}
           >
             <Image src={src} alt="" width={1200} height={400} className="block w-full h-auto" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (block.type === "bento") {
+    return (
+      <div key={bi} className="mt-8 grid grid-cols-2 gap-3">
+        {block.images.map((img, ii) => (
+          <div key={ii} className={`overflow-hidden rounded-xl ${img.span === "full" ? "col-span-2" : ""}`}>
+            <Lightbox src={img.src} alt="" />
           </div>
         ))}
       </div>

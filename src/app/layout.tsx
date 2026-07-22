@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     "Product & UX Designer specializing in design systems, enterprise SaaS, and user-centered design. Currently at PDQ.",
-  metadataBase: new URL("https://stonesagala.com"),
+  metadataBase: new URL("https://stonesagala.github.io"),
   openGraph: {
     title: "Stone Sagala — Product & UX Designer",
     description:
@@ -42,7 +42,7 @@ const personSchema = {
   jobTitle: "Product Designer",
   description:
     "Product & UX Designer specializing in design systems, enterprise SaaS, and user-centered design.",
-  url: "https://stonesagala.com",
+  url: "https://stonesagala.github.io",
   sameAs: [
     "https://linkedin.com/in/stonesagala",
     "https://github.com/StoneSagala",

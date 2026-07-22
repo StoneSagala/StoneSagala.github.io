@@ -57,6 +57,7 @@ export default function ResultsSection({ results }: { results: Result[] }) {
           <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
             Impact & Outcomes
           </h2>
+          <p className="mt-2 font-mono text-sm text-text-secondary">as of July 2026</p>
         </ScrollReveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">

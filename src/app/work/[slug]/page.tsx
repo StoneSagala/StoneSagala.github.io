@@ -15,17 +15,26 @@ export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const project = projects.find((p) => p.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
 
+  const title = project.company
+    ? `${project.title} — ${project.company}`
+    : project.title;
+
   return {
-    title: project.title,
+    title,
     description: project.description,
+    openGraph: {
+      title,
+      description: project.description,
+    },
   };
 }
 
