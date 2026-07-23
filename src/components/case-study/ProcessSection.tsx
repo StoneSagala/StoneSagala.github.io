@@ -81,7 +81,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
       <div key={bi} className={`mt-8 grid gap-3 ${colClass}`}>
         {block.images.map((src, ii) => (
           <div key={ii} className="overflow-hidden rounded-xl">
-            <Lightbox src={src} alt="" />
+            <Lightbox src={src} alt={block.alts?.[ii] ?? ""} />
           </div>
         ))}
       </div>

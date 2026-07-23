@@ -5,7 +5,7 @@ export type ProcessBlock =
   | { type: "link"; text: string; url: string }
   | { type: "expandable"; label: string; sections: { heading: string; items: string[] }[] }
   | { type: "mosaic"; images: string[] }
-  | { type: "gallery"; images: string[]; columns?: 1 | 2 | 3 | 4 }
+  | { type: "gallery"; images: string[]; columns?: 1 | 2 | 3 | 4; alts?: string[] }
   | { type: "bento"; images: { src: string; span?: "full" | "half" }[] }
   | { type: "stat"; value: string; label: string };
 
@@ -234,6 +234,13 @@ export const projects: Project[] = [
               "/images/projects/powershell-scanner-pdq/feedback-6.webp",
               "/images/projects/powershell-scanner-pdq/feedback-7.webp",
             ],
+            alts: [
+              "PDQ Discord comment from stvnbth: Great to see PowerShell scanners showing up with priority next. Those will be a very welcome improvement.",
+              "PDQ Discord comment from lawgorithm: I am SO excited for PowerShell scanners in Connect. I've been looking forward to this since we moved from PDQ D&I to Connect a couple years ago.",
+              "PDQ Discord comment from Ted: Man I wish I could use this right now! Waiting until April is going to kill me. But really can't wait to have this.",
+              "PDQ Discord message from Marcel sharing a custom PowerShell scanner script he built, noting he stayed up until 1AM to finish it.",
+              "PDQ Discord comment from Fortress: I do want to say this has been my favorite release thus far. Good work!",
+            ],
           },
         ],
       },
@@ -438,6 +445,15 @@ export const projects: Project[] = [
         imageSize: "full",
         blocks: [
           { type: "stat", value: "Months", label: "of traditional dev time saved on a working POC" },
+        ],
+      },
+      {
+        title: "Deckforge: A Magic the Gathering deck builder",
+        body: "Building a 100-card Commander deck with AI is hard to do without the model hallucinating cards. I built Deckforge on a 4-stage pipeline with an ICM structure to keep each stage focused and reduce hallucination. The testing stage runs 1,000 simulated games, flags weak spots, and rewrites the list before a card ever hits the table.",
+        image: "/images/projects/ai-projects/deckforge.webp",
+        imageSize: "full",
+        blocks: [
+          { type: "stat", value: "Months", label: "of decktesting and iterating saved for each deck" },
         ],
       },
       {
