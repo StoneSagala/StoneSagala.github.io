@@ -7,9 +7,9 @@ export default function StatementSection() {
   return (
     <section className="border-t border-border py-24 md:py-32">
       <Container>
-        <h2 className="max-w-4xl" aria-label="My job is to make products feel simple. Because users didn't sign up for a learning curve.">
+        <h2 className="max-w-4xl" aria-label="I build products that feel simple. Because users didn't sign up for a learning curve.">
           <SplitText
-            text="My job is to make products feel simple."
+            text="I build products that feel simple."
             tag="span"
             splitType="words"
             delay={60}
