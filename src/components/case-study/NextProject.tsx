@@ -8,7 +8,7 @@ import type { Project } from "@/data/projects";
 
 export default function NextProject({ project }: { project: Project }) {
   return (
-    <section className="border-t border-border py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
           <p className="mb-4 font-mono text-sm text-text-tertiary">

@@ -50,7 +50,7 @@ function MetricCard({ result, index }: { result: Result; index: number }) {
 
 export default function ResultsSection({ results }: { results: Result[] }) {
   return (
-    <section className="border-t border-border py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
           <p className="mb-2 font-mono text-sm text-accent">Results</p>

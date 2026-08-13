@@ -18,7 +18,7 @@ export default function CTASection() {
 
           <AnimatedText
             text="Let's build something great together."
-            className="text-3xl font-semibold text-text-primary md:text-5xl"
+            className="text-3xl font-semibold text-text-primary md:text-4xl"
             as="h2"
           />
 

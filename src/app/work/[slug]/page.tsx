@@ -58,10 +58,10 @@ export default async function CaseStudyPage({
       <CaseStudyHero project={project} />
 
       {project.summary && (
-        <section className="border-t border-border py-16 md:py-24">
+        <section className="py-16 md:py-24">
           <Container>
             <ScrollReveal>
-              <p className="mb-2 font-mono text-sm text-accent">Overview</p>
+              <h2 className="mb-4 text-3xl font-semibold text-text-primary md:text-4xl">Overview</h2>
               <p className="max-w-3xl text-xl leading-relaxed text-text-secondary">
                 {project.summary}
               </p>

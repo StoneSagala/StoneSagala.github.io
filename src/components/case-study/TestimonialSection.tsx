@@ -9,7 +9,7 @@ export default function TestimonialSection({
   author: string;
 }) {
   return (
-    <section className="border-t border-border py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
           <div className="max-w-3xl">

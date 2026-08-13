@@ -9,18 +9,18 @@ export default function ChallengeSection({
   solution: string;
 }) {
   return (
-    <section className="border-t border-border py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
         <div className="grid gap-12 md:grid-cols-2">
           <ScrollReveal>
-            <p className="mb-2 font-mono text-sm text-accent">The Challenge</p>
+            <h2 className="mb-4 text-3xl font-semibold text-text-primary md:text-4xl">The Challenge</h2>
             <p className="text-lg leading-relaxed text-text-secondary">
               {challenge}
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.15}>
-            <p className="mb-2 font-mono text-sm text-accent">The Solution</p>
+            <h2 className="mb-4 text-3xl font-semibold text-text-primary md:text-4xl">The Solution</h2>
             <p className="text-lg leading-relaxed text-text-secondary">
               {solution}
             </p>

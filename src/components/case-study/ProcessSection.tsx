@@ -153,7 +153,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
 
 export default function ProcessSection({ sections, label, alternatingLayout }: { sections: ProjectSection[]; label?: { eyebrow: string; heading: string }; alternatingLayout?: boolean }) {
   return (
-    <section className="border-t border-border py-16 md:py-24">
+    <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
           <p className="mb-2 font-mono text-sm text-accent">{label?.eyebrow ?? "Process"}</p>

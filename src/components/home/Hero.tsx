@@ -37,10 +37,26 @@ export default function Hero() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const start = () => setInterval(() => {
       setIndex((i) => (i + 1) % words.length);
     }, 2800);
-    return () => clearInterval(timer);
+
+    let timer = start();
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        clearInterval(timer);
+      } else {
+        clearInterval(timer);
+        timer = start();
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => {
+      clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, []);
 
   return (
@@ -137,22 +153,6 @@ export default function Hero() {
         </div>
       </Container>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="font-mono text-xs text-text-tertiary">Scroll</span>
-          <div className="h-8 w-px bg-text-tertiary" />
-        </motion.div>
-      </motion.div>
 
     </section>
   );

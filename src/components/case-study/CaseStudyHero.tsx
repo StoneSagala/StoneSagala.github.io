@@ -14,7 +14,7 @@ export default function CaseStudyHero({ project }: { project: Project }) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="mb-4 font-mono text-sm text-accent">{project.company}</p>
-          <h1 className="text-4xl font-semibold text-text-primary md:text-6xl">
+          <h1 className="text-4xl font-bold text-text-primary md:text-6xl">
             {project.heroTitle ?? project.title}
           </h1>
           <p className="mt-4 max-w-2xl text-xl text-text-secondary">
@@ -27,7 +27,7 @@ export default function CaseStudyHero({ project }: { project: Project }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-3"
+            className="mt-10 grid gap-6 pt-8 sm:grid-cols-3"
           >
             <div>
               <p className="font-mono text-xs text-text-tertiary uppercase tracking-wider">
