@@ -70,7 +70,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           style={{
             background: `radial-gradient(ellipse 80% 70% at 0% 50%, ${words[index].color}2e 0%, transparent 70%)`,
           }}
@@ -86,7 +86,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="font-sans text-4xl font-bold leading-tight tracking-tight text-text-primary md:text-6xl md:leading-tight"
             aria-label="Let's turn complex products into intuitive, scalable, accessible, and impactful digital experiences."
           >
@@ -112,7 +112,7 @@ export default function Hero() {
                     initial={words[index].enter}
                     animate={{ y: 0, x: 0 }}
                     exit={words[index].exit}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                     style={{ color: words[index].color }}
                   >
                     {words[index].text}
@@ -128,7 +128,7 @@ export default function Hero() {
               <p className="text-lg leading-relaxed text-text-secondary">
                 Salt Lake City based product designer with 5 years of experience across healthcare, enterprise IT, cybersecurity, and motorsports.
               </p>
-              <p className="mt-3 text-base text-text-primary">
+              <p className="mt-3 text-sm text-text-primary">
                 Currently @{" "}
                 <a
                   href="https://www.pdq.com"

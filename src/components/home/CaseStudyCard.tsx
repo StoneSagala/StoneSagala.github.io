@@ -11,7 +11,7 @@ export default function CaseStudyCard({ project }: { project: Project }) {
       <motion.article
         whileHover={{ y: -6 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="flex w-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-secondary transition-colors duration-300 group-hover:border-border-hover"
+        className="flex w-full flex-col overflow-hidden rounded-xl border border-border bg-bg-secondary transition-colors duration-200 group-hover:border-border-hover"
       >
         {/* Thumbnail */}
         <div
@@ -22,7 +22,7 @@ export default function CaseStudyCard({ project }: { project: Project }) {
             src={project.thumbnail}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
@@ -30,12 +30,12 @@ export default function CaseStudyCard({ project }: { project: Project }) {
         {/* Content */}
         <div className="flex flex-1 flex-col p-6 md:p-8">
           <p
-            className="mb-2 font-mono text-xs font-medium uppercase tracking-widest"
+            className="mb-2 font-sans text-sm font-medium uppercase tracking-widest"
             style={{ color: project.color }}
           >
             {project.company}
           </p>
-          <h3 className="text-xl font-bold text-text-primary md:text-2xl">
+          <h3 className="font-sans text-lg font-semibold text-text-primary">
             {project.title}
           </h3>
           <p className="mt-2 text-text-secondary">{project.subtitle}</p>
@@ -46,7 +46,7 @@ export default function CaseStudyCard({ project }: { project: Project }) {
                 <p className="text-lg font-bold" style={{ color: project.color }}>
                   {result.value}
                 </p>
-                <p className="text-xs text-text-tertiary">{result.label}</p>
+                <p className="text-sm text-text-secondary">{result.label}</p>
               </div>
             ))}
           </div>

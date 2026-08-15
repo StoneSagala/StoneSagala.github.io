@@ -7,10 +7,10 @@ export default function NotFound() {
     <section className="flex min-h-screen items-center pt-16">
       <Container>
         <div className="mx-auto max-w-lg text-center">
-          <p className="font-mono text-6xl font-bold text-accent">404</p>
+          <p className="font-sans text-6xl font-bold text-accent">404</p>
           <AnimatedText
             text="Page not found."
-            className="mt-4 text-3xl font-semibold text-text-primary"
+            className="font-sans mt-4 text-3xl font-semibold text-text-primary"
             as="h1"
           />
           <p className="mt-4 text-text-secondary">

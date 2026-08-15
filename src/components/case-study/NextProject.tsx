@@ -11,7 +11,7 @@ export default function NextProject({ project }: { project: Project }) {
     <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
-          <p className="mb-4 font-mono text-sm text-text-tertiary">
+          <p className="mb-4 font-sans text-sm text-text-secondary">
             Next Project
           </p>
           <Link href={`/work/${project.slug}`} className="group block">
@@ -19,7 +19,7 @@ export default function NextProject({ project }: { project: Project }) {
               whileHover={{ x: 8 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2 className="text-3xl font-semibold text-text-primary transition-colors group-hover:text-accent md:text-4xl">
+              <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary transition-colors group-hover:text-accent md:text-4xl">
                 {project.title}
               </h2>
               <p className="mt-2 text-text-secondary">{project.subtitle}</p>

@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-bg-primary">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-12 md:flex-row lg:px-8">
-        <p className="font-mono text-sm text-text-tertiary">
+        <p className="font-sans text-sm text-text-secondary">
           &copy; {new Date().getFullYear()} Stone Sagala
         </p>
 

@@ -45,8 +45,8 @@ export default function TestimonialSlider() {
     <section className="border-t border-border py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">They Said It, Not Me</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
+          <p className="mb-2 font-sans text-sm text-accent">They Said It, Not Me</p>
+          <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
             Testimonials
           </h2>
         </ScrollReveal>
@@ -63,7 +63,7 @@ export default function TestimonialSlider() {
               className="col-start-1 row-start-1 max-w-2xl"
               style={{ pointerEvents: i === current ? "auto" : "none" }}
             >
-              <p className="text-xl leading-relaxed text-text-primary md:text-2xl">
+              <p className="text-lg leading-relaxed text-text-primary">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <footer className="mt-6 flex items-center gap-3">
@@ -106,10 +106,10 @@ export default function TestimonialSlider() {
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-[width,background-color] duration-200 ${
                   i === current
                     ? "w-8 bg-accent"
-                    : "w-2 bg-bg-elevated hover:bg-text-tertiary"
+                    : "w-2 bg-bg-elevated hover:bg-text-secondary"
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />

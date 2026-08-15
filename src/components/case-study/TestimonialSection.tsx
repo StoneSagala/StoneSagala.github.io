@@ -16,10 +16,10 @@ export default function TestimonialSection({
             <span className="font-sans text-6xl leading-none text-accent" aria-hidden="true">
               &ldquo;
             </span>
-            <p className="mt-2 text-2xl font-semibold leading-snug text-text-primary md:text-3xl">
+            <p className="mt-2 text-3xl font-semibold leading-snug text-text-primary">
               {text}
             </p>
-            <p className="mt-6 font-mono text-sm text-accent">{author}</p>
+            <p className="mt-6 font-sans text-sm text-accent">{author}</p>
           </div>
         </ScrollReveal>
       </Container>

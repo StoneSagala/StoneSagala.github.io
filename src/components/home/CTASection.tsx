@@ -11,19 +11,19 @@ export default function CTASection() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <p className="mb-4 font-mono text-sm text-accent">
+            <p className="mb-4 font-sans text-sm text-accent">
               Available for opportunities
             </p>
           </ScrollReveal>
 
           <AnimatedText
             text="Let's build something great together."
-            className="text-3xl font-semibold text-text-primary md:text-4xl"
+            className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl"
             as="h2"
           />
 
           <ScrollReveal delay={0.3}>
-            <p className="mt-6 text-lg text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
               I&apos;m open to freelance projects and full-time roles where I can
               make a meaningful impact on product design and design systems.
             </p>

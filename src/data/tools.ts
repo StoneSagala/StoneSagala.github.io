@@ -53,7 +53,7 @@ export const categoryColors: Record<Exclude<ToolCategory, "All">, string> = {
   Analytics:  "#EF4444",
   PM:         "#8B5CF6",
   Web:        "#06B6D4",
-  AI:         "#FF9933",
+  AI:         "#818CF8",
   Frameworks: "#EC4899",
 };
 

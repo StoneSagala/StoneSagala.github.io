@@ -24,7 +24,7 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
           scrolled
             ? "border-b border-border bg-bg-primary/80 backdrop-blur-xl"
             : "bg-transparent"
@@ -33,7 +33,7 @@ export default function Header() {
         <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link
             href="/"
-            className="font-mono text-sm font-medium tracking-wider text-text-primary uppercase"
+            className="font-sans text-sm font-medium tracking-wider text-text-primary uppercase"
           >
             Stone Sagala
           </Link>

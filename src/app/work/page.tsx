@@ -16,11 +16,11 @@ export default function WorkPage() {
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-4 font-mono text-sm text-accent">Selected Work</p>
+          <p className="mb-4 font-sans text-sm text-accent">Selected Work</p>
         </ScrollReveal>
         <AnimatedText
           text="Projects that moved the needle."
-          className="max-w-2xl text-4xl font-semibold text-text-primary md:text-5xl"
+          className="font-sans max-w-2xl text-4xl font-semibold text-text-primary md:text-6xl"
           as="h1"
         />
         <ScrollReveal delay={0.3}>

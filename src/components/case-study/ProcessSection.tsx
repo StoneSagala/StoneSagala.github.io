@@ -26,7 +26,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
         {block.items.map((kw, ii) => (
           <span
             key={ii}
-            className="rounded-full border border-border bg-bg-secondary px-4 py-1.5 font-mono text-sm text-text-primary"
+            className="rounded-full border border-border bg-bg-secondary px-4 py-1.5 font-sans text-sm text-text-primary"
           >
             {kw}
           </span>
@@ -38,7 +38,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
   if (block.type === "expandable") {
     return (
       <details key={bi} className="mt-6 rounded-xl border border-border overflow-hidden group">
-        <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-mono text-sm text-text-primary hover:bg-bg-elevated transition-colors">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 font-sans text-sm text-text-primary hover:bg-bg-elevated transition-colors">
           <span>{block.label}</span>
           <svg
             className="w-4 h-4 text-accent shrink-0 transition-transform duration-200 group-open:rotate-180"
@@ -50,7 +50,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
         <div className="border-t border-border px-5 py-6 space-y-6 bg-bg-secondary">
           {block.sections.map((s, si) => (
             <div key={si}>
-              <p className="font-mono text-xs text-accent mb-3 uppercase tracking-wider">{s.heading}</p>
+              <p className="font-sans text-sm text-accent mb-3 uppercase tracking-wider">{s.heading}</p>
               <ul className="space-y-2">
                 {s.items.map((item, ii) => (
                   <li key={ii} className="flex items-start gap-3 text-sm text-text-secondary leading-relaxed">
@@ -126,7 +126,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
     return (
       <div key={bi} className="mt-6 inline-block border-l-2 border-accent pl-4">
         <p className="text-3xl font-semibold text-text-primary">{block.value}</p>
-        <p className="mt-0.5 font-mono text-sm text-text-tertiary">{block.label}</p>
+        <p className="mt-0.5 font-sans text-sm text-text-secondary">{block.label}</p>
       </div>
     );
   }
@@ -138,7 +138,7 @@ function renderBlock(block: ProcessBlock, bi: number) {
         href={block.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center gap-2 font-mono text-sm text-accent underline-offset-4 hover:underline"
+        className="mt-6 inline-flex items-center gap-2 font-sans text-sm text-accent underline-offset-4 hover:underline"
       >
         {block.text}
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -156,8 +156,8 @@ export default function ProcessSection({ sections, label, alternatingLayout }: {
     <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">{label?.eyebrow ?? "Process"}</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
+          <p className="mb-2 font-sans text-sm text-accent">{label?.eyebrow ?? "Process"}</p>
+          <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
             {label?.heading ?? "How I Got There"}
           </h2>
         </ScrollReveal>
@@ -171,7 +171,7 @@ export default function ProcessSection({ sections, label, alternatingLayout }: {
             <ScrollReveal key={section.title} delay={i * 0.08}>
               <div className={useSideLayout ? `flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 md:items-center` : ``}>
                 <div className={useSideLayout && isReversed ? "md:order-2" : ""}>
-                  <h3 className="text-xl font-semibold text-text-primary">
+                  <h3 className="font-sans text-lg font-semibold text-text-primary">
                     {section.title}
                   </h3>
                   {section.body && (

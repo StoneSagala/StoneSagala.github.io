@@ -21,10 +21,10 @@ function MetricCard({ result, index }: { result: Result; index: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
       className="rounded-xl border border-border bg-bg-secondary p-6 text-center"
     >
-      <p className="text-4xl font-semibold text-accent md:text-5xl">
+      <p className="text-4xl font-semibold text-accent">
         {result.value}
       </p>
       <p className="mt-2 font-medium text-text-primary">{result.label}</p>
@@ -53,11 +53,11 @@ export default function ResultsSection({ results }: { results: Result[] }) {
     <section className="py-16 md:py-24">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">Results</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
+          <p className="mb-2 font-sans text-sm text-accent">Results</p>
+          <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
             Impact & Outcomes
           </h2>
-          <p className="mt-2 font-mono text-sm text-text-secondary">as of July 2026</p>
+          <p className="mt-2 font-sans text-sm text-text-secondary">as of July 2026</p>
         </ScrollReveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
