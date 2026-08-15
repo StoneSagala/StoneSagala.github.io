@@ -46,7 +46,7 @@ export default function BeforeAfterToggle({
           <button
             onClick={() => switchView("before")}
             aria-pressed={view === "before"}
-            className={`rounded-full px-5 py-1.5 font-mono text-sm transition-colors ${
+            className={`rounded-full px-5 py-1.5 font-sans text-sm transition-colors ${
               view === "before" ? "bg-accent text-bg-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
@@ -55,7 +55,7 @@ export default function BeforeAfterToggle({
           <button
             onClick={() => switchView("after")}
             aria-pressed={view === "after"}
-            className={`rounded-full px-5 py-1.5 font-mono text-sm transition-colors ${
+            className={`rounded-full px-5 py-1.5 font-sans text-sm transition-colors ${
               view === "after" ? "bg-accent text-bg-primary" : "text-text-secondary hover:text-text-primary"
             }`}
           >
@@ -68,14 +68,14 @@ export default function BeforeAfterToggle({
             ref={beforeRef}
             src={beforeVideo}
             autoPlay muted loop playsInline
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 cursor-zoom-in ${view === "before" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 cursor-zoom-in ${view === "before" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
             onClick={() => setExpanded(true)}
           />
           <video
             ref={afterRef}
             src={afterVideo}
             autoPlay muted loop playsInline
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 cursor-zoom-in ${view === "after" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 cursor-zoom-in ${view === "after" ? "opacity-100" : "opacity-0 pointer-events-none"}`}
             onClick={() => setExpanded(true)}
           />
           <button

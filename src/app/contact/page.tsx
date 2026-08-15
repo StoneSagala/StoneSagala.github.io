@@ -31,11 +31,11 @@ export default function ContactPage() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <p className="mb-4 font-mono text-sm text-accent">Contact</p>
+            <p className="mb-4 font-sans text-sm text-accent">Contact</p>
           </ScrollReveal>
           <AnimatedText
             text="Let's create something meaningful."
-            className="text-4xl font-semibold text-text-primary md:text-5xl"
+            className="font-sans text-4xl font-semibold text-text-primary md:text-6xl"
             as="h1"
           />
           <ScrollReveal delay={0.3}>
@@ -61,7 +61,7 @@ export default function ContactPage() {
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-mono text-xs text-text-tertiary uppercase tracking-wider">
+                    <p className="font-sans text-sm text-text-secondary uppercase tracking-wider">
                       {method.label}
                     </p>
                     <p className="mt-1 text-lg font-medium text-text-primary group-hover:text-accent">
@@ -71,7 +71,7 @@ export default function ContactPage() {
                       {method.description}
                     </p>
                   </div>
-                  <span className="text-text-tertiary transition-colors group-hover:text-accent" aria-hidden="true">
+                  <span className="text-text-secondary transition-colors group-hover:text-accent" aria-hidden="true">
                     &rarr;
                   </span>
                 </div>

@@ -36,7 +36,7 @@ export default function AnimatedText({
             prefersReducedMotion
               ? { duration: 0 }
               : {
-                  duration: 0.5,
+                  duration: 0.4,
                   delay: delay + i * 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }

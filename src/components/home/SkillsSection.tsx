@@ -43,8 +43,8 @@ export default function SkillsSection() {
     <section className="border-t border-border py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">More Than Just Figma</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
+          <p className="mb-2 font-sans text-sm text-accent">More Than Just Figma</p>
+          <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
             Core Strengths
           </h2>
         </ScrollReveal>
@@ -59,7 +59,7 @@ export default function SkillsSection() {
                 >
                   {iconMap[skill.icon]}
                 </div>
-                <h3 className="text-lg font-semibold text-text-primary">
+                <h3 className="font-sans text-lg font-semibold text-text-primary">
                   {skill.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-secondary">

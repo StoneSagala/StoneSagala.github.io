@@ -31,8 +31,8 @@ export default function BentoCaseStudyGrid() {
     <section id="work" className="py-24 md:py-32 bento-case-section">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-12">
-          <p className="mb-2 font-mono text-sm text-accent">Proof I Design</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">Case Studies</h2>
+          <p className="mb-2 font-sans text-sm text-accent">Proof I Design</p>
+          <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">Case Studies</h2>
         </div>
 
         <div ref={gridRef} className="bento-case-grid">

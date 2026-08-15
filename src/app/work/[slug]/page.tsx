@@ -62,7 +62,7 @@ export default async function CaseStudyPage({
           <Container>
             <ScrollReveal>
               <h2 className="mb-4 text-3xl font-semibold text-text-primary md:text-4xl">Overview</h2>
-              <p className="max-w-3xl text-xl leading-relaxed text-text-secondary">
+              <p className="max-w-3xl text-lg leading-relaxed text-text-secondary">
                 {project.summary}
               </p>
             </ScrollReveal>

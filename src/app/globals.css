@@ -3,14 +3,13 @@
 :root {
 /* Background hierarchy */
   --bg-primary: #0A0A0C;
-  --bg-secondary: #121216;
+  --bg-secondary: #17171D;
   --bg-tertiary: #1C1C22;
-  --bg-elevated: #26262E;
+  --bg-elevated: #34343E;
 
   /* Text hierarchy */
   --text-primary: #F2F2F2;
-  --text-secondary: #A3A3AA;
-  --text-tertiary: #8A8A94;
+  --text-secondary: #B8B8C2;
 
   /* Accent - warm amber */
   --accent: #FF9933;
@@ -32,7 +31,6 @@
   --color-bg-elevated: var(--bg-elevated);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-muted: var(--accent-muted);
@@ -46,7 +44,7 @@
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-mono), monospace;
 }
 
 /* Focus styles */
@@ -76,7 +74,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-tertiary);
+  background: var(--text-secondary);
 }
 
 html {
@@ -109,7 +107,7 @@ html {
   width: 100%;
   height: 420px;
   padding: 0;
-  border-radius: 20px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--bg-secondary);
   overflow: hidden;
@@ -161,7 +159,7 @@ html {
   height: 100%;
   object-fit: cover;
   object-position: top;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 /* Card header */
@@ -173,7 +171,7 @@ html {
 }
 
 .bento-card__label {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-sans, sans-serif);
   font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -188,6 +186,7 @@ html {
 }
 
 .bento-card__title {
+  font-family: var(--font-sans, sans-serif);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -224,7 +223,7 @@ html {
 
 .bento-metric__label {
   font-size: 0.7rem;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
 }
 
 /* SpotlightCard overlay */
@@ -242,7 +241,7 @@ html {
   inset: 0;
   background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 80%);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.4s ease;
   pointer-events: none;
   z-index: 1;
 }

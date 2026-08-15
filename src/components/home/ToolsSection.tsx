@@ -115,7 +115,7 @@ function ToolIcon({ tool, color }: { tool: Tool; color: string }) {
   }
 
   return (
-    <span className="flex h-5 w-5 shrink-0 items-center justify-center font-mono text-xs font-semibold" style={{ color }} aria-hidden>
+    <span className="flex h-5 w-5 shrink-0 items-center justify-center font-sans text-sm font-semibold" style={{ color }} aria-hidden>
       {tool.name[0]}
     </span>
   );
@@ -174,8 +174,8 @@ export default function ToolsSection() {
     <section className="border-t border-border py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-mono text-sm text-accent">My Secret Sauce</p>
-          <h2 className="text-3xl font-semibold text-text-primary md:text-4xl">
+          <p className="mb-2 font-sans text-sm text-accent">My Secret Sauce</p>
+          <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
             Tools & Frameworks
           </h2>
         </ScrollReveal>
@@ -194,7 +194,7 @@ export default function ToolsSection() {
                   onClick={() => setActive(cat)}
                   aria-pressed={isActive}
                   aria-label={`${label}, ${count} item${count !== 1 ? "s" : ""}`}
-                  className={`rounded-lg px-4 py-1.5 font-mono text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary focus-visible:ring-accent ${
+                  className={`rounded-full px-4 py-1.5 font-sans text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary focus-visible:ring-accent ${
                     isActive ? "" : "border border-border text-text-secondary hover:border-border-hover hover:text-text-primary"
                   }`}
                   style={isActive ? { backgroundColor: color ?? "var(--color-accent)", color: "var(--color-bg-primary)" } : undefined}
@@ -222,7 +222,7 @@ export default function ToolsSection() {
                   initial={{ opacity: 0, scale: 0.92 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.92 }}
-                  transition={{ duration: 0.18 }}
+                  transition={{ duration: 0.2 }}
                   className="tool-chip tool-chip--glow flex items-center gap-3 rounded-xl bg-bg-secondary px-4 py-3 transition-colors duration-200"
                   style={{
                     border: `1px solid ${color}33`,
@@ -234,7 +234,7 @@ export default function ToolsSection() {
                   } as React.CSSProperties}
                 >
                   <ToolIcon tool={tool} color={color} />
-                  <span className="font-mono text-sm text-text-secondary">
+                  <span className="font-sans text-sm text-text-secondary">
                     {tool.name}
                   </span>
                 </motion.div>
