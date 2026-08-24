@@ -26,7 +26,7 @@ export default function UIShowcase() {
   return (
     <section
       ref={containerRef}
-      className="overflow-hidden border-t border-border py-24 md:py-32"
+      className="overflow-hidden py-24 md:py-32"
     >
       <Container>
         <ScrollReveal>

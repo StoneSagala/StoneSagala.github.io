@@ -6,6 +6,7 @@ type ButtonProps = {
   href?: string;
   variant?: "primary" | "outline" | "ghost";
   className?: string;
+  download?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
@@ -13,6 +14,7 @@ export default function Button({
   href,
   variant = "primary",
   className,
+  download,
   ...props
 }: ButtonProps) {
   const baseStyles =
@@ -33,12 +35,13 @@ export default function Button({
       <Link
         href={href}
         className={styles}
-        {...(isExternal
+        {...(download ? { download: true } : {})}
+        {...(isExternal && !download
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}
       >
         {children}
-        {isExternal && <span className="sr-only">(opens in new tab)</span>}
+        {isExternal && !download && <span className="sr-only">(opens in new tab)</span>}
       </Link>
     );
   }

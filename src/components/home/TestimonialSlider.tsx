@@ -42,7 +42,7 @@ export default function TestimonialSlider() {
   }, [paused, resetKey, advance]);
 
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section className="py-24 md:py-32">
       <Container>
         <ScrollReveal>
           <p className="mb-2 font-sans text-sm text-accent">They Said It, Not Me</p>

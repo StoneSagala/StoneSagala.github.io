@@ -5,7 +5,7 @@ import SplitText from "@/components/ui/SplitText";
 
 export default function StatementSection() {
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section className="py-24 md:py-32">
       <Container>
         <h2 className="max-w-4xl" aria-label="I build products that feel simple. Because users didn't sign up for a learning curve.">
           <SplitText

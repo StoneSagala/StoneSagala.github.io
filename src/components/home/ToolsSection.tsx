@@ -171,7 +171,7 @@ export default function ToolsSection() {
   const filtered = active === "All" ? tools : tools.filter((t) => t.category === active);
 
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section className="py-24 md:py-32">
       <Container>
         <ScrollReveal>
           <p className="mb-2 font-sans text-sm text-accent">My Secret Sauce</p>
