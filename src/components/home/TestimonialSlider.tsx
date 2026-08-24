@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
@@ -8,38 +8,41 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialSlider() {
-  const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [resetKey, setResetKey] = useState(0);
-
-  const advance = useCallback(() => {
-    setCurrent((p) => (p + 1) % testimonials.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setCurrent((p) => (p - 1 + testimonials.length) % testimonials.length);
-    setResetKey((k) => k + 1);
-  }, []);
-
-  const next = useCallback(() => {
-    setCurrent((p) => (p + 1) % testimonials.length);
-    setResetKey((k) => k + 1);
-  }, []);
-
-  const goTo = useCallback((i: number) => {
-    setCurrent(i);
-    setResetKey((k) => k + 1);
-  }, []);
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>(
+    new Array(testimonials.length).fill(null)
+  );
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReducedMotion || paused) return;
+    const intersecting = new Set<number>();
 
-    const timer = setInterval(advance, 10000);
-    return () => clearInterval(timer);
-  }, [paused, resetKey, advance]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-index"));
+          if (entry.isIntersecting) {
+            intersecting.add(index);
+          } else {
+            intersecting.delete(index);
+          }
+        });
+
+        if (intersecting.size > 0) {
+          const sorted = [...intersecting].sort((a, b) => a - b);
+          setFocusedIndex(sorted[Math.floor(sorted.length / 2)]);
+        } else {
+          setFocusedIndex(null);
+        }
+      },
+      { rootMargin: "-25% 0px -25% 0px", threshold: 0 }
+    );
+
+    cardRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="py-24 md:py-32">
@@ -51,101 +54,46 @@ export default function TestimonialSlider() {
           </h2>
         </ScrollReveal>
 
-        {/* Grid-stack: all testimonials occupy the same cell so the tallest sets the height */}
-        <div className="mt-12 grid" aria-live="polite" aria-atomic="true">
-          {testimonials.map((t, i) => (
-            <motion.blockquote
-              key={i}
-              animate={{ opacity: i === current ? 1 : 0 }}
-              transition={{ duration: 0.4 }}
-              aria-hidden={i !== current}
-              {...(i !== current ? { inert: true } : {})}
-              className="col-start-1 row-start-1 max-w-2xl"
-              style={{ pointerEvents: i === current ? "auto" : "none" }}
-            >
-              <p className="text-lg leading-relaxed text-text-primary">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <footer className="mt-6 flex items-center gap-3">
-                {t.photo ? (
-                  <Image
-                    src={t.photo}
-                    alt={t.name}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="h-10 w-10 rounded-full bg-bg-tertiary" />
-                )}
-                <div>
-                  <p className="font-medium text-text-primary">{t.name}</p>
-                  <p className="text-sm text-text-secondary">{t.role}</p>
-                </div>
-              </footer>
-            </motion.blockquote>
-          ))}
-        </div>
-
-        {/* Controls */}
-        <div className="mt-8 flex items-center gap-3">
-          {/* Prev */}
-          <button
-            onClick={prev}
-            aria-label="Previous testimonial"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
-          {/* Dots */}
-          <div className="flex gap-2">
-            {testimonials.map((_, i) => (
-              <button
+        <div className="mt-12 space-y-10">
+          {testimonials.map((t, i) => {
+            const isRight = i % 2 === 1;
+            const isFocused = focusedIndex === null || focusedIndex === i;
+            return (
+              <motion.div
                 key={i}
-                onClick={() => goTo(i)}
-                className={`h-2 rounded-full transition-[width,background-color] duration-200 ${
-                  i === current
-                    ? "w-8 bg-accent"
-                    : "w-2 bg-bg-elevated hover:bg-text-secondary"
-                }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Next */}
-          <button
-            onClick={next}
-            aria-label="Next testimonial"
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-
-          {/* Pause / Play */}
-          <button
-            onClick={() => setPaused((p) => !p)}
-            aria-label={paused ? "Play autoplay" : "Pause autoplay"}
-            className="ml-1 flex h-8 w-8 items-center justify-center rounded-full border border-border text-text-secondary transition-colors hover:border-border-hover hover:text-text-primary"
-          >
-            {paused ? (
-              /* Play icon */
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M4 2.5l7 4.5-7 4.5V2.5z" fill="currentColor" />
-              </svg>
-            ) : (
-              /* Pause icon */
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <rect x="3" y="2.5" width="2.5" height="9" rx="1" fill="currentColor" />
-                <rect x="8.5" y="2.5" width="2.5" height="9" rx="1" fill="currentColor" />
-              </svg>
-            )}
-          </button>
+                ref={(el) => { cardRefs.current[i] = el; }}
+                data-index={i}
+                animate={{ opacity: isFocused ? 1 : 0.5 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className={`flex flex-col ${isRight ? "items-end" : "items-start"}`}
+              >
+                <figure className="w-full max-w-[80%] md:max-w-[65%]">
+                  <blockquote className="rounded-xl border border-border bg-bg-secondary p-6">
+                    <p className="text-base leading-relaxed text-text-primary">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </blockquote>
+                  <figcaption className={`mt-3 flex items-center gap-3 ${isRight ? "flex-row-reverse" : ""}`}>
+                    {t.photo ? (
+                      <Image
+                        src={t.photo}
+                        alt={t.name}
+                        width={36}
+                        height={36}
+                        className="h-9 w-9 shrink-0 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="h-9 w-9 shrink-0 rounded-full bg-bg-elevated" />
+                    )}
+                    <div className={isRight ? "text-right" : ""}>
+                      <p className="font-sans text-sm font-medium text-text-primary">{t.name}</p>
+                      <p className="font-sans text-xs text-text-secondary">{t.role}</p>
+                    </div>
+                  </figcaption>
+                </figure>
+              </motion.div>
+            );
+          })}
         </div>
       </Container>
     </section>
