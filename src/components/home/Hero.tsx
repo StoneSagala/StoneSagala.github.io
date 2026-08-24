@@ -33,13 +33,17 @@ export default function Hero() {
     const scalesColor = getComputedStyle(scalesRef.current).color;
 
     async function playSequence() {
-      await new Promise<void>((r) => setTimeout(r, 700));
+      await new Promise<void>((r) => setTimeout(r, 1500));
 
       await shipsControls.start({
         color: "#60A5FA",
         y: [0, -10, 0, -10, 0],
         rotate: [0, -3, 0, -3, 0],
-        transition: { duration: 3.2, ease: "easeInOut" },
+        transition: {
+          color: { duration: 0.1 },
+          y: { duration: 1.0, ease: "easeInOut" },
+          rotate: { duration: 1.0, ease: "easeInOut" },
+        },
       });
       await shipsControls.start({
         color: shipsColor,
