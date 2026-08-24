@@ -8,40 +8,30 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialSlider() {
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const [scrollFocused, setScrollFocused] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const activeFocus = hoveredIndex !== null ? hoveredIndex : scrollFocused;
+
   const cardRefs = useRef<(HTMLDivElement | null)[]>(
     new Array(testimonials.length).fill(null)
   );
 
   useEffect(() => {
-    const intersecting = new Set<number>();
+    const handleScroll = () => {
+      const threshold = window.innerHeight / 3;
+      let newFocused = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = Number(entry.target.getAttribute("data-index"));
-          if (entry.isIntersecting) {
-            intersecting.add(index);
-          } else {
-            intersecting.delete(index);
-          }
-        });
+      cardRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= threshold) newFocused = i;
+      });
 
-        if (intersecting.size > 0) {
-          const sorted = [...intersecting].sort((a, b) => a - b);
-          setFocusedIndex(sorted[Math.floor(sorted.length / 2)]);
-        } else {
-          setFocusedIndex(null);
-        }
-      },
-      { rootMargin: "-25% 0px -25% 0px", threshold: 0 }
-    );
+      setScrollFocused(newFocused);
+    };
 
-    cardRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -57,14 +47,15 @@ export default function TestimonialSlider() {
         <div className="mt-12 space-y-10">
           {testimonials.map((t, i) => {
             const isRight = i % 2 === 1;
-            const isFocused = focusedIndex === null || focusedIndex === i;
+            const isFocused = activeFocus === i;
             return (
               <motion.div
                 key={i}
                 ref={(el) => { cardRefs.current[i] = el; }}
-                data-index={i}
                 animate={{ opacity: isFocused ? 1 : 0.5 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
                 className={`flex flex-col ${isRight ? "items-end" : "items-start"}`}
               >
                 <figure className="w-full max-w-[80%] md:max-w-[65%]">
