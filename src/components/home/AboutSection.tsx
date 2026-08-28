@@ -21,10 +21,10 @@ const anime = [
 ];
 
 const hobbies = [
-  { name: "BJJ", desc: "The chess of martial arts. Slowly getting less bad.", image: "/images/hobbies/bjj.jpg", objectPosition: "object-top" },
-  { name: "Magic the Gathering", desc: "Commander format. I built an AI pipeline to build decks. Still lose to my friends.", image: "/images/hobbies/mtg.jpg", objectPosition: "object-center" },
-  { name: "Board Games", desc: "The longer the rulebook, the better. Wingspan, Root, Catan.", image: "/images/hobbies/board-games.jpg", objectPosition: "object-center" },
-  { name: "Travel", desc: "Any excuse to go somewhere new.", image: "/images/hobbies/travel.jpg", objectPosition: "object-center" },
+  { name: "BJJ", desc: "The chess of martial arts. Slowly getting less bad.", image: "/images/hobbies/bjj.jpg", gif: "/images/hobbies/bjj.gif", objectPosition: "object-top" },
+  { name: "Magic the Gathering", desc: "Commander format. I built an AI pipeline to build decks. Still lose to my friends.", image: "/images/hobbies/mtg.jpg", gif: "/images/hobbies/mtg.gif", objectPosition: "object-center" },
+  { name: "Board Games", desc: "The longer the rulebook, the better. Wingspan, Root, Catan.", image: "/images/hobbies/board-games.jpg", gif: "/images/hobbies/board-games.gif", objectPosition: "object-center" },
+  { name: "Travel", desc: "Any excuse to go somewhere new.", image: "/images/hobbies/travel.jpg", gif: "/images/hobbies/travel.gif", objectPosition: "object-center" },
 ];
 
 const tabs = ["Hobbies", "Favorite Anime", "Top Songs"] as const;
@@ -99,8 +99,18 @@ function AnimeCard({ show }: { show: typeof anime[0] }) {
 }
 
 function HobbyCard({ hobby }: { hobby: typeof hobbies[0] }) {
+  const [hovered, setHovered] = useState(false);
+  const [tapped, setTapped] = useState(false);
+
+  const active = hovered || tapped;
+
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-bg-secondary">
+    <div
+      className={`overflow-hidden rounded-xl border bg-bg-secondary transition-colors duration-200 ${active ? "border-border-hover" : "border-border"}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onClick={() => setTapped((prev) => !prev)}
+    >
       <div className="relative w-full h-44 overflow-hidden bg-bg-tertiary">
         <Image
           src={hobby.image}
@@ -110,6 +120,22 @@ function HobbyCard({ hobby }: { hobby: typeof hobbies[0] }) {
           unoptimized
           className={`h-full w-full object-cover ${hobby.objectPosition}`}
         />
+        {hobby.gif && (
+          <motion.div
+            className="absolute inset-0"
+            animate={{ opacity: active ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Image
+              src={hobby.gif}
+              alt={hobby.name}
+              width={400}
+              height={176}
+              unoptimized
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
+        )}
       </div>
       <div className="px-3 py-2">
         <p className="font-sans text-sm font-medium text-text-primary">{hobby.name}</p>
