@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const credentials = [
   {
-    label: "Object Oriented Designer",
+    label: "Object Oriented Design",
     desc: "The system and data architecture are mapped into every design before a single wireframe is drawn.",
   },
   {
@@ -21,9 +21,9 @@ export default function CredentialsSection() {
     <section className="py-24 md:py-32">
       <Container>
         <ScrollReveal>
-          <p className="mb-2 font-sans text-sm text-accent">More than just Figma</p>
+          <p className="mb-2 font-sans text-sm text-accent">My secret sauce</p>
           <h2 className="font-sans text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
-            The Full Picture
+            More Than Just Screens
           </h2>
         </ScrollReveal>
 

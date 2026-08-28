@@ -4,6 +4,7 @@ import CaseStudyGrid from "@/components/home/CaseStudyGrid";
 import StatementSection from "@/components/home/StatementSection";
 import ToolsSection from "@/components/home/ToolsSection";
 import TestimonialSlider from "@/components/home/TestimonialSlider";
+import AboutSection from "@/components/home/AboutSection";
 import CTASection from "@/components/home/CTASection";
 
 export default function Home() {
@@ -13,7 +14,8 @@ export default function Home() {
       <CredentialsSection />
       <CaseStudyGrid />
       <StatementSection />
-      <ToolsSection />
+      {/* <ToolsSection /> */}
+      <AboutSection />
       <TestimonialSlider />
       <CTASection />
     </>

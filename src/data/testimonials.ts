@@ -8,6 +8,13 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
+      "Stone is an absolute workhorse of a designer. He is incredibly disciplined, hardworking, and has this amazing ability to just figure out any problem thrown his way. He takes feedback exceptionally well, uses it to improve, and is just a fantastic team player all around.",
+    name: "Iana Noda",
+    role: "Team Lead",
+    photo: "/testimonials/iana-noda.jpg",
+  },
+  {
+    quote:
       "Stone consistently brought a level-headed, pragmatic approach to problem-solving — the unique ability to combine creativity with practicality, ensuring every design decision was not only user-centric but aligned with the business's objectives.",
     name: "Joseph Ybarra",
     role: "Head of Product",
@@ -47,12 +54,5 @@ export const testimonials: Testimonial[] = [
     name: "Meagan Meyer",
     role: "Delivery Manager",
     photo: "/testimonials/meagan-meyer.jpg",
-  },
-  {
-    quote:
-      "Stone excels at creating user-friendly designs using Figma, simplifying complex concepts. His creativity and design standards ensure intuitive interfaces. He is a collaborative team player who is highly organized.",
-    name: "Rodny Hickman",
-    role: "Web Systems Architect",
-    photo: "/testimonials/rodney-hickman.jpg",
   },
 ];
