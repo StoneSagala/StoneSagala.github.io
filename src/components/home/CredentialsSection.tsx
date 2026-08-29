@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const credentials = [
   {
-    label: "Object Oriented Design",
+    label: "Object oriented design",
     desc: "The system and data architecture are mapped into every design before a single wireframe is drawn.",
   },
   {
