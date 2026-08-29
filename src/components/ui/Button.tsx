@@ -30,7 +30,24 @@ export default function Button({
   const styles = clsx(baseStyles, variants[variant], className);
 
   if (href) {
+    const isHash = href.startsWith("#");
     const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+
+    if (isHash) {
+      return (
+        <a
+          href={href}
+          className={styles}
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link
         href={href}
