@@ -31,7 +31,7 @@ export default function WorkPage() {
         </ScrollReveal>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {projects.map((project, i) => (
+          {projects.filter((p) => p.complete !== false).map((project, i) => (
             <ScrollReveal key={project.slug} delay={i * 0.1}>
               <CaseStudyCard project={project} />
             </ScrollReveal>

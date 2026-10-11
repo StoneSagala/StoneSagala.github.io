@@ -36,7 +36,7 @@ export default function BentoCaseStudyGrid() {
         </div>
 
         <div ref={gridRef} className="bento-case-grid">
-          {projects.map((project) => (
+          {projects.filter((p) => p.complete !== false).map((project) => (
             <Link
               key={project.slug}
               href={`/work/${project.slug}`}
