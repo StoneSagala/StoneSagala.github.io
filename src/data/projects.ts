@@ -70,7 +70,7 @@ export const projects: Project[] = [
         label: "admins launched a Live Shell session",
         value: "2,365",
         description:
-          "Across 11,213 session attempts. About 13% failed to connect, which is exactly why the reconnecting and could-not-connect states mattered.",
+          "Across 11,213 session attempts since early access opened.",
       },
       {
         label: "admins opened File Explorer",
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     ],
     sections: [
       {
-        title: "Users wanted \"Backstage\" mode. We had a different idea",
+        title: "Users wanted Backstage mode, we had a different idea",
         body: "Backstage mode remotes into a device in a hidden session so the end user isn't interrupted. When I dug into the customer calls, the remote session was never the point. One admin on a customer call said they just wanted to \"make the change and then be like, it's fixed, or they don't even know it's fixed.\" So the goal became giving admins what Backstage gets them, a command line and a file system, without remoting in at all.",
         image: "/images/projects/live-shell-file-explorer/backstage-mode.jpg",
         imageSize: "medium",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       {
         title: "Live actions get their own home",
         body: "I split the device page by what you're doing. The left menu holds information about the device, things that don't change very often. The Live Action Center in the top right holds things you do on the device right now, like Remote Desktop, Processes, and now Live Shell and File Explorer. That's why Live Shell opens as a window over the device page (with a pop-out to its own tab) instead of as another page in the menu. It feels like you're working on this device right now, not reading about it.",
-        image: "/images/projects/live-shell-file-explorer/04-live-build-shell-over-device-page.png",
+        image: "/images/projects/live-shell-file-explorer/03-live-build-action-center-tooltip.png",
         imageSize: "full",
       },
       {
@@ -129,13 +129,22 @@ export const projects: Project[] = [
       },
       {
         title: "A very good screwdriver",
-        body: "Before handing it to engineering, I tested the flow with our internal IT team, a senior engineer, and on customer calls to see if the smaller scope held up. It did, with a few UI changes. One customer said it best on a call: \"Who gets excited about a screwdriver? Maybe a few weird people... This is a solid screwdriver.\" That was the bar I was designing for.",
+        body: "Before handing it to engineering, I tested the flow with our internal IT team, a senior engineer, and on customer calls to see if the smaller scope held up. It did, with a few UI changes. One customer said it best on a call: \"Who gets excited about a screwdriver? Maybe a few weird people... This is a solid screwdriver.\" These features weren't exciting or flashy, but they were needed and much appreciated.",
         image: "/images/projects/live-shell-file-explorer/05c-live-build-row-actions.png",
         imageSize: "medium",
       },
       {
         title: "What I only caught once it was real",
-        body: "Once Live Shell was running in a real browser, I did a design review and filed tickets for what didn't hold up. Our engineer flagged that the terminal's default colors were hard to read, so I moved us to GitHub's terminal theme after checking contrast on both light and dark backgrounds, and asked for the colors to become design tokens. When a session was reconnecting, a loading skeleton hid everything the admin had already run, so I changed it to keep their work on screen. The timeout alert also offered \"Retry\" for a session that was already gone. That was a design mistake on my end, so it became \"Start new session.\"",
+        body: "Once Live Shell was running in a real browser, I did a design review and filed tickets for what didn't hold up.",
+        blocks: [
+          {
+            type: "list",
+            items: [
+              "Terminal colors were hard to read. I moved us to GitHub's terminal theme after checking contrast on both light and dark backgrounds, and asked for the colors to become design tokens.",
+              "A loading skeleton hid everything the admin had already run when reconnecting. I changed it to keep their work on screen.",
+            ],
+          },
+        ],
       },
       {
         title: "We held back delete. Users noticed.",
